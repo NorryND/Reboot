@@ -17,6 +17,11 @@
 				
 				<td><form:hidden path="id" /></td>
 			</tr>
+			
+			<tr>				
+				<td><img src="${pageContext.request.contextPath}/upload/${product.name}.jpg"/></td>
+			</tr>
+			
 			<tr>
 				<td><form:label path="name">Product Name</form:label></td>
 				

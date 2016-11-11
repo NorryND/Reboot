@@ -36,7 +36,7 @@
 			<td>${product.description}</td>
 			<td align="left">${product.cost}</td>
 			<td>${product.stock}</td>
-			<td><a href="details/${product.id}">Details</a></td>
+			<td><a href="${pageContext.request.contextPath}/details/${product.id}">Details</a></td>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
 			  <td><a href="editProduct/${product.id }">Edit</a></td>
 		      <td><a href="deleteProduct/${product.id}">Delete</a></td>		     

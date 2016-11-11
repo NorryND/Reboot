@@ -4,8 +4,12 @@ package com.niit.Controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,12 +41,25 @@ public class UserController {
 		
 	}
 
-	@RequestMapping("addUser")
-	public String addUser(@ModelAttribute User user) {
-		user.setRoles("ROLE_USER");
-		userDAO.add(user);
+	@RequestMapping(value="addUser", method=RequestMethod.POST)
+	public String addUser(@Valid @ModelAttribute User user, BindingResult result, Model model) {
+		if(result.hasErrors())
+		{
+			return "register";
+		}
 		
-	  return "redirect:/";
+		else if(user.getPassword().equals(user.getConfirmpass()))
+		{
+			user.setRoles("ROLE_USER");
+			userDAO.add(user);
+			
+		  return "redirect:/";
+		}
+		else
+		{
+		model.addAttribute("passerror", "Invalid");
+		return "register";
+		}
 	 }
 		
 	

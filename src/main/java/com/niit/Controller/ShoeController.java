@@ -39,7 +39,7 @@ public class ShoeController
     }
 	
 	@RequestMapping(value="/Register", method=RequestMethod.GET)
-	public String register(Model model)
+	public String register(Model model )
 	     {		
 		model.addAttribute("user", new User());
 		model.addAttribute("registermessage", "Registration Successful..... Please Login");
