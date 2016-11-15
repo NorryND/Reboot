@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
@@ -22,6 +24,9 @@ public class Product{
 	private String cost;
 	private String stock;
 	private MultipartFile file;
+	private Category category;
+	
+
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -63,7 +68,18 @@ public class Product{
 	}
 	public void setFile(MultipartFile file) {
 		this.file = file;
-	}		
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="C_ID")
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+		
 	
 }
 	

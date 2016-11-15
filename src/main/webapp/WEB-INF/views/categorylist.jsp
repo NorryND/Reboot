@@ -9,6 +9,7 @@
 <title>Category</title>
 </head>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 <h4>List of available Category</h4>
 <p>${message} </p>
@@ -36,6 +37,7 @@
 		</tr>
 	</c:forEach>
 </table>
+<br><br><br>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

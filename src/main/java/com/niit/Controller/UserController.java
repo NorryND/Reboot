@@ -26,6 +26,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	
 	@RequestMapping(value="editUser/{user.username}", method=RequestMethod.GET)
 	public String editUser(@PathVariable("user.username") String id, Map<String, Object> map){
 		User user=userDAO.get(id);
@@ -57,7 +58,7 @@ public class UserController {
 		}
 		else
 		{
-		model.addAttribute("passerror", "Invalid");
+		model.addAttribute("passerror", "true");
 		return "register";
 		}
 	 }

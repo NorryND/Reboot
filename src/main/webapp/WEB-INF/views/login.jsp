@@ -11,7 +11,7 @@
 
 
 <body style="background-color: #8a8a5c">
-
+<%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 
         <c:if test="${not empty error}">
@@ -34,14 +34,15 @@
         
     <button type="submit">Login</button><br>
     
-    <button type="button" class="cancelbtn">Cancel</button><br>
+    <button type="reset" class="cancelbtn">Cancel</button><br>
     
     <input type="checkbox"> Remember me
   <div class="container"> 
      
     <span class="psw">Forgot <a href="#">Password? &middot;</a></span>
     <a href="Register">New User?</a>
-  </div> <br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+   <br><br><br>
   
   <%@ include file="footer.jsp" %>
   

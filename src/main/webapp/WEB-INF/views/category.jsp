@@ -10,7 +10,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
 </head>
+<style>
+
+     table{
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+}
+
+</style>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 	<h2>Category</h2>
    <a href="getAllCategory">List</a><br>
@@ -28,7 +42,7 @@
 			
 		</table>
 
-	</form:form>
+	</form:form><br><br><br>
 
 <%@ include file="footer.jsp" %>
 </body>

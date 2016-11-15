@@ -11,14 +11,9 @@
 <title>Welcome</title>
 </head>
 
-<body style="background-color: #8a8a5c">
+<body>
 
-<div class="jumbotron">  
-  <div class="container text-center">
-    <h1><i>REBOOT</i></h1>      
-    <p><i>Money, Pay, Boot</i></p>
-  </div>
-</div>
+<%@ include file="jumbotron.jsp" %>
 
 <%@ include file="header.jsp" %>
 
@@ -131,7 +126,7 @@ ${registermessage}
       </div>
     </div>
   </div>
-</div><br><br>
+</div><br><br><br>
 
   
     <%@ include file="footer.jsp" %>

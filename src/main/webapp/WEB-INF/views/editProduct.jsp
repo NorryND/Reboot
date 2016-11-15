@@ -11,6 +11,7 @@
 <title>Add Product</title>
 </head>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 	<h2>EDIT Product</h2>
 
@@ -45,7 +46,7 @@
 		</table>
 
 	</form:form>
-	<br>
+	<br><br><br>
 <%@ include file="footer.jsp" %>
 
 </body>

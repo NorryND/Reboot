@@ -8,22 +8,66 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products</title>
 </head>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+ tr, td {
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+tr:hover{background-color:buttonhighlight;}
+
+th {
+    background-color: graytext;
+    color: white;
+}
+
+ a.style:link, a.style:visited {
+    background-color: graytext;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a.style:hover, a.style:active {
+    background-color: green;
+}
+}
+
+</style>
+
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 <h4>List of available Products</h4>
 <p>${message} </p>
 
 
-<table width="50%">
+<table align="center">
 	<tr>
 	    
-		<th align="left">Id</th>
-		<th align="left">Name</th>
-		<th align="left">Description</th>
-		<th align="left">Cost</th>
-		<th align="left">Stock</th>
-		<th align="left">Images</th>
-		<th align="center">Settings</th>
+		<th>Id</th>
+		<th>Name</th>
+		
+		<th>Cost</th>
+		<th>Stock</th>
+		<th colspan="3" align="center">Settings</th>
+		
 		
 		
 		
@@ -33,18 +77,19 @@
 			
 			<td>${product.id}</td>
 			<td>${product.name}</td>
-			<td>${product.description}</td>
+		
 			<td align="left">${product.cost}</td>
 			<td>${product.stock}</td>
-			<td><a href="${pageContext.request.contextPath}/details/${product.id}">Details</a></td>
+			<td><a href="${pageContext.request.contextPath}/details/${product.id}" class="style">Details</a></td>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
-			  <td><a href="editProduct/${product.id }">Edit</a></td>
-		      <td><a href="deleteProduct/${product.id}">Delete</a></td>		     
+			  <td><a href="editProduct/${product.id }" class="style">Edit</a></td>
+		      <td><a href="deleteProduct/${product.id}" class="style">Delete</a></td>		     
 			</sec:authorize>
 			
 		</tr>
 	</c:forEach>
 </table>
+<br><br><br>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

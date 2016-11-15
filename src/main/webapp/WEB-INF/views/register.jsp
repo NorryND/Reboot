@@ -14,11 +14,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Register</title>
 
+
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
 	<%@ include file="header.jsp"%>
-	<div style="color:red">
-                <p>${requestScope.passerror}</p>  
+	<c:if test="${not empty passerror}">
+            <div style="color:red">
+                <h1 id="banner">Password do not match !!</h1>
             </div>
+        </c:if>
 
 	<div class="imgcontainer">
 		<img src="<c:url value="/images/img4.png"/>" alt="Avatar" class="avatar"><br>
@@ -78,8 +82,7 @@
 			</tr>
             
 	</table>
-	<br><br><br><br>
-
+	<br><br><br>
 	</form:form>
 	<%@ include file="footer.jsp" %>
 </body>

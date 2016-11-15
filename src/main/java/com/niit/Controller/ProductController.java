@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.ProductDAO;
 import com.niit.Models.Product;;
 
@@ -27,6 +27,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
+	
+	@Autowired
+	private CategoryDAO categoryDAO;
 	
 	@RequestMapping(value="editProduct/{product.id}", method=RequestMethod.GET)
 	public String editProduct(@PathVariable("product.id") String id, Map<String, Object> map){
@@ -58,9 +61,10 @@ public class ProductController {
 
 	@RequestMapping("addProduct")
 	public String addProduct(@ModelAttribute Product product, @RequestParam("file") MultipartFile file) 
-	{
-		productDAO.add(product);
+	{   
 		
+		productDAO.add(product);
+			
 		if(!product.getFile().isEmpty())
 			{
 				try
@@ -92,7 +96,7 @@ public class ProductController {
 
 	@RequestMapping(value="deleteProduct/{product.id}", method=RequestMethod.GET)
 	public String deleteProduct(@PathVariable("product.id") String id) {
-		
+		categoryDAO.delete(id);
 		productDAO.delete(id);
 	    return "redirect:/getAllProduct";
 	 }

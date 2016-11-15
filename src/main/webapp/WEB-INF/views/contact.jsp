@@ -35,7 +35,7 @@ fieldset {
 </style>
 </head>
 <body style="background-color: #8a8a5c">
-
+<%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 
  <h2>Enjoyed Looking At Our Work? Don't hesitate to contact us! </h2>
@@ -67,7 +67,7 @@ fieldset {
     </fieldset>
    </form:form>
 </div>
-
+<br><br><br>
 <%@ include file="footer.jsp" %>
 
 </body>
