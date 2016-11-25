@@ -8,6 +8,48 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
 </head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+ tr, td {
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+tr:hover{background-color:buttonhighlight;}
+
+th {
+    background-color: graytext;
+    color: white;
+}
+
+ a.style:link, a.style:visited {
+    background-color: graytext;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a.style:hover, a.style:active {
+    background-color: green;
+}
+}
+
+</style>
+
 <body style="background-color: #8a8a5c">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
@@ -15,12 +57,12 @@
 <p>${message} </p>
 
 
-<table width="50%">
+<table align="center">
 	<tr>
 	    
 		<th align="left">Id</th>
 		<th align="left">Name</th>
-		<th align="center">Settings</th>
+		<th colspan="3" align="center">Settings</th>
 		
 		
 	</tr>
@@ -30,8 +72,8 @@
 			<td>${category.id}</td>
 			<td>${category.name}</td>
 			
-			<td><a href="editCategory/${category.id }">Edit</a></td>
-		    <td><a href="deleteCategory/${category.id}">Delete</a></td>
+			<td><a href="editCategory/${category.id }" class="style">Edit</a></td>
+		    <td><a href="deleteCategory/${category.id}" class="style">Delete</a></td>
 			
 			
 		</tr>

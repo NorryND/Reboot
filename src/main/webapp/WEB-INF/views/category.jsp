@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Category</title>
+<title>Add Category</title>
 </head>
 <style>
 
@@ -26,14 +26,18 @@
 <body style="background-color: #8a8a5c">
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
-	<h2>Category</h2>
-   <a href="getAllCategory">List</a><br>
+	<h2>Add Category</h2>
 
 	<form:form action="${pageContext.request.contextPath}/addCategory" method="post" modelAttribute="category">
 		<table align="center">
+		
+		    <tr>
+				<td><form:hidden path="id" /></td>
+			</tr>
 			<tr>
 				<td><form:label path="name">Category Name</form:label></td>
 				<td><form:input path="name" /></td>
+				<td><form:errors path="name" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors></td>
 			</tr>
 			
 			<tr>

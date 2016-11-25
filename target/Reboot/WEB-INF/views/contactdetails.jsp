@@ -9,6 +9,7 @@
 <title>Contact Details</title>
 </head>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 
 <form:form action="${pageContext.request.contextPath}/getAllContact" method="post" modelAttribute="contact">
@@ -46,6 +47,7 @@
 		</table>
 
 	</form:form>
+	<br><br><br>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

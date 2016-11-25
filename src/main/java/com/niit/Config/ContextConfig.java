@@ -18,18 +18,27 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import com.niit.DAO.BillingDAO;
+import com.niit.DAO.BillingDAOImpl;
+import com.niit.DAO.CartDAO;
+import com.niit.DAO.CartDAOImpl;
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.CategoryDAOImpl;
 import com.niit.DAO.ContactDAO;
 import com.niit.DAO.ContactDAOImpl;
+import com.niit.DAO.PaymentDAO;
+import com.niit.DAO.PaymentDAOImpl;
 import com.niit.DAO.ProductDAO;
 import com.niit.DAO.ProductDAOImpl;
 import com.niit.DAO.SupplierDAO;
 import com.niit.DAO.SupplierDAOImpl;
 import com.niit.DAO.UserDAO;
 import com.niit.DAO.UserDAOImpl;
+import com.niit.Models.Billing;
+import com.niit.Models.Cart;
 import com.niit.Models.Category;
 import com.niit.Models.Contact;
+import com.niit.Models.Payment;
 import com.niit.Models.Product;
 import com.niit.Models.Supplier;
 //import com.niit.Services.ProductService;
@@ -85,6 +94,9 @@ public class ContextConfig {
     	sessionFactoryBuilder.addAnnotatedClass(Supplier.class);
     	sessionFactoryBuilder.addAnnotatedClass(User.class);
     	sessionFactoryBuilder.addAnnotatedClass(Contact.class);
+    	sessionFactoryBuilder.addAnnotatedClass(Cart.class);
+    	sessionFactoryBuilder.addAnnotatedClass(Billing.class);
+    	sessionFactoryBuilder.addAnnotatedClass(Payment.class);
     	return sessionFactoryBuilder.buildSessionFactory();
     }
      
@@ -118,9 +130,25 @@ public class ContextConfig {
     	return new ContactDAOImpl(sessionFactory);
     }
     
-  
+    @Autowired
+    @Bean(name = "cartDAO")
+    public CartDAO getCartDAO(SessionFactory sessionFactory) {
+    	return new CartDAOImpl(sessionFactory);
+    }
     
-  
+    @Autowired
+    @Bean(name = "billingDAO")
+    public BillingDAO getBillingDAO(SessionFactory sessionFactory) {
+    	return new BillingDAOImpl(sessionFactory);
+    }
+    
+    @Autowired
+    @Bean(name = "paymentDAO")
+    public PaymentDAO getPaymentDAO(SessionFactory sessionFactory) {
+    	return new PaymentDAOImpl(sessionFactory);
+    }  
+    
+
 
 }
 

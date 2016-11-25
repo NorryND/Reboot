@@ -5,9 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>About Us</title>
 <style>
 body {
@@ -35,7 +32,7 @@ fieldset {
 </style>
 </head>
 <body style="background-color: #8a8a5c">
-
+<%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 
  <h2>Enjoyed Looking At Our Work? Don't hesitate to contact us! </h2>
@@ -67,7 +64,7 @@ fieldset {
     </fieldset>
    </form:form>
 </div>
-
+<br><br><br>
 <%@ include file="footer.jsp" %>
 
 </body>

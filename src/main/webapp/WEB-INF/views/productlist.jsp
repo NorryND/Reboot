@@ -18,12 +18,12 @@ table {
  tr, td {
     height: 50px;
     padding: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
     border-bottom: 1px solid black;
 }
 
@@ -47,7 +47,7 @@ th {
 a.style:hover, a.style:active {
     background-color: green;
 }
-}
+
 
 </style>
 
@@ -62,8 +62,8 @@ a.style:hover, a.style:active {
 	<tr>
 	    
 		<th>Id</th>
-		<th>Name</th>
-		
+		<th align="center">Name</th>
+		<th>Category</th>
 		<th>Cost</th>
 		<th>Stock</th>
 		<th colspan="3" align="center">Settings</th>
@@ -77,7 +77,7 @@ a.style:hover, a.style:active {
 			
 			<td>${product.id}</td>
 			<td>${product.name}</td>
-		
+		    <td>${product.category}</td>
 			<td align="left">${product.cost}</td>
 			<td>${product.stock}</td>
 			<td><a href="${pageContext.request.contextPath}/details/${product.id}" class="style">Details</a></td>

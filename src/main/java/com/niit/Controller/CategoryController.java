@@ -4,18 +4,21 @@ package com.niit.Controller;
 
 
 	import java.util.List;
-	import java.util.Map;
+import java.util.Map;
 
-	import org.springframework.beans.factory.annotation.Autowired;
-	import org.springframework.stereotype.Controller;
-	import org.springframework.web.bind.annotation.ModelAttribute;
-	import org.springframework.web.bind.annotation.PathVariable;
-	import org.springframework.web.bind.annotation.RequestMapping;
-	import org.springframework.web.bind.annotation.RequestMethod;
-	import org.springframework.web.servlet.ModelAndView;
+import javax.validation.Valid;
 
-	import com.niit.DAO.CategoryDAO;
-	import com.niit.Models.Category;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.niit.DAO.CategoryDAO;
+import com.niit.Models.Category;
 
 
 
@@ -43,7 +46,11 @@ package com.niit.Controller;
 			
 
 		@RequestMapping("addCategory")
-		public String addCategory(@ModelAttribute Category category) {
+		public String addCategory(@Valid @ModelAttribute Category category,BindingResult result) {
+			if(result.hasErrors())
+			{
+				return "category";
+			}
 			categoryDAO.add(category);
 		  return "redirect:Category";
 		 }

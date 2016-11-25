@@ -11,6 +11,7 @@
 <title>Add Category</title>
 </head>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 	<h2>EDIT Category</h2>
 
@@ -32,7 +33,7 @@
 		</table>
 
 	</form:form>
-	<br>
+	<br><br><br>
 
 <%@ include file="footer.jsp" %>
 </body>

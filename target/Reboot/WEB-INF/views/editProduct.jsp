@@ -8,9 +8,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add Product</title>
+<title>Edit Product</title>
 </head>
+
+
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 	<h2>EDIT Product</h2>
 
@@ -22,20 +25,32 @@
 			</tr>
 			<tr>
 				<td><form:label path="name">Product Name</form:label></td>
-				<td><form:input path="name" /></td>
+				<td><form:input path="name" cssStyle="width:160%"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="description">Product Description</form:label></td>
-				<td><form:input path="description" /></td>
+				<td><form:textarea path="description" cssStyle="width:160%"/></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="category">Category</form:label></td>
+			       <td>
+                     <form:select path="category">
+                         <form:option value="Select a Category" cssStyle="width:160%"></form:option>
+                         <form:option value="Casual">Casual</form:option>
+                          <form:option value="Sports">Sports</form:option>
+                          <form:option  value="Formal">Formal</form:option>                   
+                     </form:select> 
+                  </td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="stock">Product Stock</form:label></td>
-				<td><form:input path="stock" /></td>
+				<td><form:input path="stock" cssStyle="width:160%"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="cost">Product Cost</form:label></td>
-				<td><form:input path="cost" /></td>
+				<td><form:input path="cost" cssStyle="width:160%"/></td>
 			</tr>
 
 			<tr>
@@ -45,7 +60,7 @@
 		</table>
 
 	</form:form>
-	<br>
+	<br><br><br>
 <%@ include file="footer.jsp" %>
 
 </body>

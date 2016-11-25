@@ -11,14 +11,9 @@
 <title>Welcome</title>
 </head>
 
-<body style="background-color: #8a8a5c">
+<body>
 
-<div class="jumbotron">  
-  <div class="container text-center">
-    <h1><i>REBOOT</i></h1>      
-    <p><i>Money, Pay, Boot</i></p>
-  </div>
-</div>
+<%@ include file="jumbotron.jsp" %>
 
 <%@ include file="header.jsp" %>
 
@@ -85,23 +80,41 @@ ${registermessage}
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><a href="#"><img src="<c:url value="/images/img5.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></a></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-body">
+        <a href="${pageContext.request.contextPath}/details/${1}">
+               <img src="<c:url value="/images/img5.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img5.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img5.jpg"/>';">
+        </a>
+        </div>
+        <div class="panel-footer">Hi-Attitude Men Blue Casual Shoes</div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="<c:url value="/images/img6.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-body">
+        <a href="${pageContext.request.contextPath}/details/${2}">
+               <img src="<c:url value="/images/img6.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img6.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img6.jpg"/>';">
+        </a>
+        </div>
+        <div class="panel-footer">Mancini Men Tan Oxford Shoes</div>
       </div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="<c:url value="/images/img7.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+     <div class="panel panel-danger">
+        <div class="panel-body">
+        <a href="${pageContext.request.contextPath}/details/${3}">
+               <img src="<c:url value="/images/img7.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img7.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img7.jpg"/>';">
+        </a>
+        </div>
+        <div class="panel-footer">Lotto ZH Grav VI 700 TX Men Black Soccer Shoes</div>
       </div>
     </div>
   </div>
@@ -131,7 +144,7 @@ ${registermessage}
       </div>
     </div>
   </div>
-</div><br><br>
+</div><br><br><br>
 
   
     <%@ include file="footer.jsp" %>

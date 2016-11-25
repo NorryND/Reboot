@@ -4,6 +4,7 @@ package com.niit.Controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value="addUser", method=RequestMethod.POST)
-	public String addUser(@Valid @ModelAttribute User user, BindingResult result, Model model) {
+	public String addUser(@Valid @ModelAttribute User user, BindingResult result, Model model,HttpSession session) {
 		if(result.hasErrors())
 		{
 			return "register";
@@ -58,8 +59,7 @@ public class UserController {
 		}
 		else
 		{
-		model.addAttribute("passerror", "true");
-		return "register";
+		return "redirect:/PassError";
 		}
 	 }
 		

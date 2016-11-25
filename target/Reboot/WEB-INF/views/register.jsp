@@ -1,25 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="<c:url value="/css/register.css"/>">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Register</title>
 
-<body style="background-color: #8a8a5c">
-	<%@ include file="header.jsp"%>
-	<div style="color:red">
-                <p>${passerror}</p>  
-            </div>
 
+<body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
+	<%@ include file="header.jsp"%>
+	<c:if test="${not empty passerror}">
+            <div style="color:red">
+                <h1 id="banner">Password do not match !!</h1>
+            </div>
+        </c:if>
 	<div class="imgcontainer">
 		<img src="<c:url value="/images/img4.png"/>" alt="Avatar" class="avatar"><br>
 	</div>
@@ -78,8 +74,7 @@
 			</tr>
             
 	</table>
-	<br><br><br><br>
-
+	<br><br><br>
 	</form:form>
 	<%@ include file="footer.jsp" %>
 </body>

@@ -2,7 +2,6 @@ package com.niit.DAO;
 
 import java.util.List;
 
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,6 +33,7 @@ import com.niit.Models.Product;
 
 		@Transactional
 		public void add(Product product) {
+			
 			sessionFactory.getCurrentSession().save(product);
 			
 		}
@@ -54,6 +54,8 @@ import com.niit.Models.Product;
 			
 			
     }
+
+		
     }
     
   

@@ -54,25 +54,47 @@ img {
       <ul class="nav navbar-nav">
       
         <li><a href="/Reboot">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="Contact">Contact</a></li>
+        <li><a href="${pageContext.request.contextPath}/AboutUs">About Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/Contact">Contact</a></li>
         <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <li><a href="getAllContact">View Queries</a></li> 
+            <li><a href="${pageContext.request.contextPath}/getAllContact">View Queries</a></li> 
         </sec:authorize>  
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="getAllProduct">View Product</a></li>
+          <li><a href="${pageContext.request.contextPath}/getAllProduct">View Product</a></li>
           <sec:authorize access="hasRole('ROLE_ADMIN')">
           <li><a href="${pageContext.request.contextPath}/Product">Add Product</a></li>
           
           </sec:authorize>        
         </ul>
         </li>
+        
         <sec:authorize access="hasRole('ROLE_ADMIN')">
-         <li><a href="${pageContext.request.contextPath}/Category">Category</a></li>
-         <li><a href="${pageContext.request.contextPath}/Supplier">Supplier</a></li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="${pageContext.request.contextPath}/getAllCategory">View Category</a></li>
+          
+          <li><a href="${pageContext.request.contextPath}/Category">Add Category</a></li>
+          
+           
+        </ul>
+        </li>
+
+         <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Supplier
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="${pageContext.request.contextPath}/getAllSupplier">View Supplier</a></li>
+          
+          <li><a href="${pageContext.request.contextPath}/Supplier">Add Supplier</a></li>
+          
+           
+        </ul>
+        </li>
         
         </sec:authorize>
       
@@ -81,15 +103,15 @@ img {
       <ul class="nav navbar-nav navbar-right">
       
       <sec:authorize access="isAnonymous()">
-       <li><a href="Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>   
+       <li><a href="${pageContext.request.contextPath}/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="${pageContext.request.contextPath}/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>   
       </sec:authorize>
         
       <sec:authorize access="isAuthenticated()">
       <li><a href="#">Your Account</a></li>
-      <li><a href="Cart"><span class="glyphicon glyphicon-user"></span> My Cart</a></li>
+      <li><a href="${pageContext.request.contextPath}/Cart"><span class="glyphicon glyphicon-user"></span> My Cart</a></li>
       
-      <li><a href="Logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+      <li><a href="${pageContext.request.contextPath}/Logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       
       </sec:authorize>
             

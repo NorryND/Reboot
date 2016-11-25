@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -10,10 +8,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Product</title>
 </head>
+<style>
+
+     table{
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+}
+
+</style>
 <body style="background-color: #8a8a5c">
+<%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 	<h2>ADD Supplier</h2>
-   <a href="getAllSupplier">List</a><br>
 
 	<form:form action="${pageContext.request.contextPath}/addSupplier" method="post" modelAttribute="supplier">
 		<table align="center">
@@ -28,7 +39,7 @@
 			
 			<tr>
 				<td><form:label path="address">Supplier Address</form:label></td>
-				<td><form:input path="address" /></td>
+				<td><form:textarea path="address" /></td>
 			</tr>
 
 			<tr>
@@ -38,7 +49,7 @@
 		</table>
 
 	</form:form>
-	<br>
+	<br><br><br>
 
 <%@ include file="footer.jsp" %>
 </body>

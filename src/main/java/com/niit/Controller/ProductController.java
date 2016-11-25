@@ -7,18 +7,22 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.DAO.CategoryDAO;
 import com.niit.DAO.ProductDAO;
+import com.niit.Models.Category;
 import com.niit.Models.Product;;
 
 
@@ -31,16 +35,22 @@ public class ProductController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
+	
 	@RequestMapping(value="editProduct/{product.id}", method=RequestMethod.GET)
-	public String editProduct(@PathVariable("product.id") String id, Map<String, Object> map){
+	public ModelAndView editProduct(@PathVariable("product.id") String id){
 	    Product product=productDAO.get(id);
-	    map.put("product", product);
-	    return "editProduct";
+	    ModelAndView mv=new ModelAndView("editProduct");
+	    mv.addObject("product", product);
+	    return mv;
 	}
 	
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
 	
-	public String updateProduct(Product product){
+	public String updateProduct(@Valid @ModelAttribute Product product, BindingResult result){
+		
+		if (result.hasErrors()){
+			return "editProduct";
+		}
 		productDAO.update(product);
 		return "redirect:getAllProduct";
 		
@@ -56,17 +66,20 @@ public class ProductController {
 		      return "productdetails";
 		      
     }	
-				
-		
 
-	@RequestMapping("addProduct")
-	public String addProduct(@ModelAttribute Product product, @RequestParam("file") MultipartFile file) 
+	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
+	public String addProduct(@Valid @ModelAttribute Product product, 
+			Model model,BindingResult result) 
 	{   
+		if(result.hasErrors())
+		{
+			return "product";
+		}
+		else
 		
-		productDAO.add(product);
-			
 		if(!product.getFile().isEmpty())
 			{
+			productDAO.add(product);
 				try
 				{
 					File dir= new File("C:/Users/Norwin Dcruz/Desktop/NIIT/Reboot/src/main/webapp/upload");
@@ -90,18 +103,26 @@ public class ProductController {
 			{
 				System.out.println("You failed to upload  because the file was empty.");
 			}
+
 		return "redirect:Product";
-	 }
+		}
+	
+	 
 		
 
 	@RequestMapping(value="deleteProduct/{product.id}", method=RequestMethod.GET)
 	public String deleteProduct(@PathVariable("product.id") String id) {
-		categoryDAO.delete(id);
 		productDAO.delete(id);
 	    return "redirect:/getAllProduct";
 	 }
 	
-
+	@RequestMapping(value="cdata",method=RequestMethod.GET)
+	public @ResponseBody List<Category> clist(){
+		
+		return categoryDAO.list();
+		
+	}
+  
 	
 	@RequestMapping("/getAllProduct")
 	public ModelAndView getAllProducts() {
@@ -110,10 +131,8 @@ public class ProductController {
 		
 		ModelAndView mv = new ModelAndView("productlist");
 		mv.addObject("productlist", List);
-
 		return mv;
 	}
 	
-
 }
 

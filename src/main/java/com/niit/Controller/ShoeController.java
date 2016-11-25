@@ -1,5 +1,7 @@
 package com.niit.Controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.niit.Models.Cart;
 import com.niit.Models.Category;
 import com.niit.Models.Contact;
 import com.niit.Models.Product;
@@ -24,6 +27,12 @@ public class ShoeController
 	public String homepage()
 	     {		
 		return "index";
+         }
+	
+	@RequestMapping("/AboutUs")
+	public String About()
+	     {		
+		return "aboutus";
          }
 		
 	@RequestMapping(value="/Login", method=RequestMethod.GET)
@@ -42,14 +51,22 @@ public class ShoeController
 	public String register(Model model )
 	     {		
 		model.addAttribute("user", new User());
-		model.addAttribute("registermessage", "Registration Successful..... Please Login");
 		return "register";
          }
 	
+	@RequestMapping(value = "/PassError", method = RequestMethod.GET)
+    public String passerror(Model model) {
+		System.out.println("Password Error");
+        model.addAttribute("passerror", "true");
+        return "register";
+    }
+	
 	@RequestMapping("Validate")
-	public String validate(Model model, HttpSession session)
+	public String validate(Model model, HttpSession session,Principal principal)
 	{
+		String name=principal.getName();
 	      session.setAttribute("successMessage", "You Have Sucessfully Login");
+	      session.setAttribute("username", name);
 		      return "index";      
     }
 	
@@ -79,6 +96,13 @@ public class ShoeController
 	     {		
 		model.addAttribute("supplier", new Supplier());
 		return "supplier";
+         }
+	
+	@RequestMapping(value="/Cart", method=RequestMethod.GET)
+	public String cart(Model model)
+	     {		
+		model.addAttribute("cart", new Cart());
+		return "cart";
          }
 	
 	@RequestMapping(value = "/Logout", method = RequestMethod.GET)

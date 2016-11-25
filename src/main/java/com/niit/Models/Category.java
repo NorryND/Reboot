@@ -1,15 +1,12 @@
 package com.niit.Models;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,10 +15,8 @@ public class Category {
 	
 	private String id;
     
-	private String name;
-	
-	private Set<Product> product;
-	
+	@NotEmpty(message="yo")
+	private String name;	
 	
 	
 	@Id
@@ -41,12 +36,5 @@ public class Category {
 		this.name = name;
 	}
 	
-	@OneToMany(mappedBy="category", fetch=FetchType.EAGER)
-	public Set<Product> getProduct() {
-		return product;
-	}
-	public void setProduct(Set<Product> product) {
-		this.product = product;
-	}
 
 }
