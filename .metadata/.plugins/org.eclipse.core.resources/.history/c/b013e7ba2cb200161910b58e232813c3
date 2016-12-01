@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+  
+	 
+	<view-state id="start" view="order">
+	   <transition on="submit" to="editconfirm"/>
+	   <transition on="back" to="cart" />
+	</view-state>
+	
+	<view-state id="editconfirm" view="editconfirm" model="flowscope.billing">
+		<transition on="edit" to="start" />
+		<transition on="confirm" to="payment" />	
+	</view-state>
+	
+	<end-state id="payment" view="payment" />
+	
+
+</flow>

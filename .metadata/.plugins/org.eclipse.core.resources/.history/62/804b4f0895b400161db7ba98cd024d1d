@@ -1,0 +1,15 @@
+package com.niit.Controller;
+
+import com.niit.Models.Billing;
+import com.niit.Models.Payment;
+
+
+public class FlowController {
+	
+	
+	public String add(Billing billing,Payment payment){
+		return null;
+		
+	}
+
+}

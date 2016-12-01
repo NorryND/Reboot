@@ -1,0 +1,36 @@
+package com.niit.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.niit.DAO.BillingDAO;
+import com.niit.DAO.PaymentDAO;
+import com.niit.Models.Billing;
+import com.niit.Models.Payment;
+
+
+public class FlowController {
+	
+	@Autowired
+	private BillingDAO billingDAO;
+	
+	@Autowired
+	private PaymentDAO paymentDAO;
+	
+	
+	public String add(Billing billing,Payment payment){
+		
+		String status = "success";
+		
+		billing.getName();
+		billing.getAddress();
+		billing.getCity();
+		billing.getContact();
+		billing.getId();	
+		billingDAO.add(billing);
+		return status;
+		
+	}
+
+}

@@ -1,0 +1,66 @@
+package com.niit.Models;
+
+public class Payment {
+	
+	private String cno;
+	
+	private String cname;
+	
+	private String ctype;
+	
+	private String exdate;
+	
+	private String cvno;
+	
+	private Double total;
+
+	public String getCno() {
+		return cno;
+	}
+
+	public void setCno(String cno) {
+		this.cno = cno;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+
+	public String getCtype() {
+		return ctype;
+	}
+
+	public void setCtype(String ctype) {
+		this.ctype = ctype;
+	}
+
+	public String getExdate() {
+		return exdate;
+	}
+
+	public void setExdate(String exdate) {
+		this.exdate = exdate;
+	}
+
+	public String getCvno() {
+		return cvno;
+	}
+
+	public void setCvno(String cvno) {
+		this.cvno = cvno;
+	}
+
+	public Double getTotal() {
+		return total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	
+
+}

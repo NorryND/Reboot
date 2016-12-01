@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+  
+	 
+	<var name="billing" class="com.niit.Models.Billing"/>
+	
+	
+	<view-state id="start" view="order" model="billing">
+	   <transition on="submit" to="editconfirm"/>
+	   <transition on="back" to="cartlist" />
+	</view-state>
+	
+	<view-state id="editconfirm" view="editconfirm" >
+		<transition on="edit" to="start" />
+		<transition on="confirm" to="payment" />	
+	</view-state>
+	<view-state id="payment" view="payment" model="payment">
+	    <transition on="submit" to="end"/>
+	   <transition on="back" to="cartlist" />	
+	</view-state>
+	
+	<view-state id="cart" view="cart">
+	
+	</view-state>
+	<end-state id="end" view="end" />
+	
+
+</flow>

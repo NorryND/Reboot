@@ -1,0 +1,54 @@
+1479665498350	Delete element
+1479669457750	Delete element
+1479721717778	Delete element
+1479727473173	Delete element
+1479727686664	Encapsulate field 'id'
+1479727692624	Encapsulate field 'name'
+1479727698475	Encapsulate field 'description'
+1479727704551	Encapsulate field 'stock'
+1479727710989	Encapsulate field 'cost'
+1479727720876	Encapsulate field 'category'
+1479727728265	Encapsulate field 'file'
+1479729637326	Encapsulate field 'ct_id'
+1479729643962	Encapsulate field 'p_id'
+1479729653099	Encapsulate field 'p_name'
+1479729658497	Encapsulate field 'qunatity'
+1479731916452	Encapsulate field 'pid'
+1479731923734	Encapsulate field 'pname'
+1479731930610	Encapsulate field 'quantity'
+1479757120765	Delete element
+1479806222888	Delete element
+1479812422931	Encapsulate field 'uid'
+1479829450740	Encapsulate field 'cart'
+1479893337055	Encapsulate field 'pprice'
+1479928820037	Copy compilation unit
+1479928826854	Delete element
+1479962022179	Encapsulate field 'id'
+1479962028546	Encapsulate field 'name'
+1479962035109	Encapsulate field 'address'
+1479962040761	Encapsulate field 'city'
+1479977033178	Encapsulate field 'contact'
+1479979038047	Rename type 'Billing'
+1479979065190	Rename type 'BillingDAO'
+1479979098738	Rename type 'BillingDAOImpl'
+1479980278197	Delete element
+1479980311513	Delete element
+1479980357707	Delete element
+1479980730891	Delete element
+1479980767630	Delete element
+1479980838217	Delete element
+1479989172101	Encapsulate field 'cno'
+1479989176857	Encapsulate field 'cname'
+1479989185556	Encapsulate field 'exdate'
+1479989191477	Encapsulate field 'cvno'
+1479989196289	Encapsulate field 'total'
+1479989288167	Encapsulate field 'ctype'
+1480065742684	Encapsulate field 'uid'
+1480067513955	Encapsulate field 'total'
+1480067969791	Encapsulate field 'total'
+1480068284416	Encapsulate field 'total'
+1480068695385	Encapsulate field 'pprice'
+1480068709360	Encapsulate field 'quantity'
+1480068963333	Encapsulate field 'stock'
+1480068971457	Encapsulate field 'cost'
+1480072676652	Encapsulate field 'gtotal'

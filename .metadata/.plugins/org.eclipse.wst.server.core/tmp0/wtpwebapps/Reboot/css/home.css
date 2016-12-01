@@ -1,0 +1,14 @@
+.carousel-inner > .item > img,
+  .carousel-inner > a
+      {
+      width: 100%;
+      margin: auto;
+       }
+   
+   
+
+img.img-responsive {
+    width: 100%;
+    border-radius: 20%;
+}
+   

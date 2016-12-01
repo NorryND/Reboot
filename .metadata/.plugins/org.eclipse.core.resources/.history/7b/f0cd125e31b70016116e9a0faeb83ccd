@@ -1,0 +1,52 @@
+package com.niit.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.niit.DAO.BillingDAO;
+import com.niit.DAO.CartDAO;
+import com.niit.DAO.PaymentDAO;
+import com.niit.DAO.UserDAO;
+import com.niit.Models.Billing;
+import com.niit.Models.Cart;
+import com.niit.Models.Payment;
+
+@Component
+public class FlowController {
+	
+	@Autowired
+	private BillingDAO billingDAO;
+	
+	@Autowired
+	private PaymentDAO paymentDAO;
+	
+	
+	@Autowired
+	private CartDAO cartDAO;
+	
+	
+	public String add(Billing billing,Payment payment){
+		
+		billing.setName(billing.getName());
+		billing.setAddress(billing.getAddress());
+		billing.setCity(billing.getCity());
+		billing.setContact(billing.getContact());
+		billing.setId(billing.getId());	
+		billingDAO.update(billing);
+		
+		payment.setUid(payment.getUid());
+		payment.setTotal(payment.getTotal());
+		paymentDAO.update(payment);
+		return "success";
+		
+	}
+	
+	public String deleteAllCart(Cart cart,String uid){
+		
+		List<Cart> list=cartDAO.list(uid);
+		return uid;
+	}
+
+}
