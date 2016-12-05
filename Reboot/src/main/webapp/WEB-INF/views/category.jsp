@@ -11,6 +11,14 @@
 <title>Add Category</title>
 </head>
 <style>
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
      table{
     width: 40%;
@@ -23,10 +31,10 @@
 }
 
 </style>
-<body style="background-color: #8a8a5c">
+<body>
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
-	<h2>Add Category</h2>
+	<h2 align="center">Add Category</h2>
 
 	<form:form action="${pageContext.request.contextPath}/addCategory" method="post" modelAttribute="category">
 		<table align="center">

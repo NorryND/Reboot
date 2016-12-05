@@ -10,16 +10,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Edit Product</title>
 </head>
-
+<style>
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+  table{
+      
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 100px;
+    text-align: left;
+    margin-left: 2cm;
+    }
+</style>
 
 <body style="background-color: #8a8a5c">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-	<h2>EDIT Product</h2>
+	<h2 align="center">EDIT Product</h2>
+	  <div style="color:red">
+                <h2 id="banner"> ${uperror}</h2>
+                <h2 id="banner"> ${psuccess}</h2>
+                <h2 id="banner"> ${perror}</h2>
+                </div>
 
 	<form:form action="${pageContext.request.contextPath}/updateProduct" method="post"
 	   modelAttribute="product" enctype="multipart/form-data">
-		<table>
+		<table align="center">
 		    <tr>
 				
 				<td><form:hidden path="id" /></td>
@@ -56,7 +81,7 @@
 			
 			<tr>
 				<td><form:label path="file"><b>Image to upload</b></form:label></td>
-				<td> <form:input type="file" path="file" cssStyle="width:60%"/> </td>
+				<td> <form:input type="file" path="file" cssStyle="width:160%"/> </td>
 			
 				
         	</tr>

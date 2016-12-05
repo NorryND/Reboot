@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <html>
@@ -11,6 +12,24 @@
 <title>Payment</title>
 </head>
 <style>
+    table{
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 15px;
+    text-align: left;
+}
+
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 a.style:link, a.style:visited {
     background-color: graytext;
     color: white;
@@ -29,7 +48,7 @@ a.style:hover, a.style:active {
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 	<h2>Payment</h2>
-
+    <h3 align="center">Total = ${Total}</h3>
 	<form:form modelAttribute="payment">
 		<table align="center">
 		
@@ -51,7 +70,7 @@ a.style:hover, a.style:active {
 			
 			<tr>
 				<td><form:label path="cname">Card Holder Name</form:label></td>
-				<td><form:input path="cname" pattern="[A-Z].{2}" title="Enter Card Holder Name" required="true"/></td>
+				<td><form:input path="cname" pattern="[A-Z]+" title="Enter Card Holder Name in UpperCase" required="true"/></td>
 			</tr>
 			
 			<tr>
@@ -97,13 +116,13 @@ a.style:hover, a.style:active {
 				<td><form:input path="cvno" pattern="[1-9]{3}" title="Enter 3-Digit CVV Number" required="true"/></td>
 			</tr>
 			<tr>
-				<td><input name="_eventId_submit" type="submit" value="Proceed Payment">
-				<td><input name="_eventId_back" type="submit" value="Back">
+				<td><input name="_eventId_submit" type="submit" class="style" value="Proceed Payment">
+				<td><input name="_eventId_back" type="submit" class="style" value="Back">
 			</tr>
 			
 		</table>
 
-	</form:form><br><br><br>
+	</form:form><br><br><br><br><br>
 
 <%@ include file="footer.jsp" %>
 </body>

@@ -6,9 +6,18 @@
 
 <link rel="stylesheet" href="<c:url value="/css/register.css"/>">
 <title>Register</title>
+<style>
+body{
+    width:100%;
+    height: 100%;
+    background-image: url("<c:url value="/images/img12.jpg"/>");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+</style>
 
-
-<body style="background-color: #8a8a5c">
+<body>
 <%@ include file="jumbotron.jsp" %>
 	<%@ include file="header.jsp"%>
             <div style="color:red">

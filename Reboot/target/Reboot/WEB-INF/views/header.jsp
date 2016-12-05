@@ -21,7 +21,6 @@ img {
 
 .navbar .nav > li > a {
   float: none;
-  **padding: 10px 15px 10px;**
   color: #777;
   text-decoration: none;
   text-shadow: 0 1px 0 #FFF;
@@ -30,7 +29,6 @@ img {
 .navbar .brand {
   display: block;
   float: left;
-  **padding: 10px 20px 10px;**
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -109,7 +107,7 @@ img {
         
       <sec:authorize access="isAuthenticated()">
       <li><a href="#">Your Account</a></li>
-      <li><a href="${pageContext.request.contextPath}/Cart"><span class="glyphicon glyphicon-user"></span> My Cart</a></li>
+      <li><a href="${pageContext.request.contextPath}/getAllCart?name=${username}"><span class="glyphicon glyphicon-user"></span> My Cart</a></li>
       
       <li><a href="${pageContext.request.contextPath}/Logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
       

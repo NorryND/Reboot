@@ -3,6 +3,8 @@ package com.niit.Models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
@@ -12,14 +14,11 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Payment implements Serializable{
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5592061788047025576L;
 
 	@Id
-	private String uid;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String pid;
 	
 	@Transient
 	private String cno;
@@ -86,13 +85,14 @@ public class Payment implements Serializable{
 		this.total = total;
 	}
 
-	public String getUid() {
-		return uid;
+	public String getPid() {
+		return pid;
 	}
 
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setPid(String pid) {
+		this.pid = pid;
 	}
+
 	
 
 }

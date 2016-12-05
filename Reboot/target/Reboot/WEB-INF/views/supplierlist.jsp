@@ -10,6 +10,15 @@
 </head>
 
 <style>
+
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 table {
     border-collapse: collapse;
     width: 50%;
@@ -27,7 +36,7 @@ th, td {
     border-bottom: 1px solid black;
 }
 
-tr:hover{background-color:buttonhighlight;}
+tr:hover{background-color:buttonshadow;}
 
 th {
     background-color: graytext;
@@ -54,7 +63,7 @@ a.style:hover, a.style:active {
 <body style="background-color: #8a8a5c">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-<h4>List of available Suppliers</h4>
+<h4 align="center">List of available Suppliers</h4>
 <p>${message} </p>
 
 
@@ -72,10 +81,10 @@ a.style:hover, a.style:active {
 	<c:forEach items="${supplierlist}" var="supplier">
 		<tr>
 			
-			<td>${supplier.id}</td>
-			<td>${supplier.name}</td>
-			<td>${supplier.contact}</td>
-			<td align="left">${supplier.address}</td>
+			<td><b>${supplier.id}</b></td>
+			<td><b>${supplier.name}</b></td>
+			<td><b>${supplier.contact}</b></td>
+			<td align="left"><b>${supplier.address}</b></td>
 
 			<td><a href="editSupplier/${supplier.id }" class="style">Edit</a></td>
 		    <td><a href="deleteSupplier/${supplier.id}" class="style">Delete</a></td>

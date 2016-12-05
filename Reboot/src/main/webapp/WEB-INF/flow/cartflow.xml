@@ -7,6 +7,7 @@
 	 
 	<var name="billing" class="com.niit.Models.Billing"/>
 	<var name="payment" class="com.niit.Models.Payment"/>
+	<var name="cart" class="com.niit.Models.Cart"/>
 	
 	
 	<view-state id="start" view="order" model="billing">
@@ -25,13 +26,14 @@
 	</view-state>
 	
 	<action-state id="processpayment">
-	<evaluate expression="FlowController.deleteAllCart(billing)"></evaluate>
+
+    <!-- <evaluate expression="flowController.addBilling(billing)"></evaluate> -->
+    <evaluate expression="flowController.add(payment,billing)"></evaluate>
 	<transition on="success" to="end" />
 	<transition on="failure" to="start" />
 	</action-state>
 	
-	<end-state id="end">
-	</end-state>
+	<end-state id="end" view="end"></end-state>
 	
 	
 

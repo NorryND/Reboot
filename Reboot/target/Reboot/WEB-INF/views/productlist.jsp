@@ -10,6 +10,16 @@
 </head>
 
 <style>
+
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
 table {
     border-collapse: collapse;
     width: 50%;
@@ -18,16 +28,16 @@ table {
  tr, td {
     height: 50px;
     padding: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
     border-bottom: 1px solid black;
 }
 
-tr:hover{background-color:buttonhighlight;}
+tr:hover{background-color:buttonshadow;}
 
 th {
     background-color: graytext;
@@ -48,21 +58,39 @@ a.style:hover, a.style:active {
     background-color: green;
 }
 
+input[type=text] {
+    align :center;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
 
 </style>
 
-<body style="background-color: #8a8a5c">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script type="text/javascript">
+var app=angular.module('App',[]);
+app.controller('ProductController', function($scope, $http) {
+$http.get("pdata").then(function(response){
+	   $scope.Data =response.data;
+});
+});
+</script>
+
+<body ng-app="App" ng-controller="ProductController">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-<h4>List of available Products</h4>
+<h4 align="center">List of Available Products</h4>
 <p>${message} </p>
-
-
+<div class="container" align="center">
+<input type="text" placeholder="Product Search" ng-model="test.name">
+</div>
 <table align="center">
 	<tr>
 	    
 		<th>Id</th>
-		<th>Name</th>
+		<th align="center">Name</th>
 		<th>Category</th>
 		<th>Cost</th>
 		<th>Stock</th>
@@ -72,22 +100,21 @@ a.style:hover, a.style:active {
 		
 		
 	</tr>
-	<c:forEach items="${productlist}" var="product">
-		<tr>
+		<tr ng-repeat="product in Data|filter:test">
 			
-			<td>${product.id}</td>
-			<td>${product.name}</td>
-		    <td>${product.category}</td>
-			<td align="left">${product.cost}</td>
-			<td>${product.stock}</td>
-			<td><a href="${pageContext.request.contextPath}/details/${product.id}" class="style">Details</a></td>
+			<td>{{product.id}}</td>
+			<td>{{product.name}}</td>
+		    <td>{{product.category}}</td>
+			<td align="left">{{product.cost}}</td>
+			<td>{{product.stock}}</td>
+			<td><a href="${pageContext.request.contextPath}/details?id={{product.id}}" class="style">Details</a></td>
 			<sec:authorize access="hasRole('ROLE_ADMIN')">
-			  <td><a href="editProduct/${product.id }" class="style">Edit</a></td>
-		      <td><a href="deleteProduct/${product.id}" class="style">Delete</a></td>		     
+			  <td><a href="editProduct?id={{product.id}}" class="style">Edit</a></td>
+		      <td><a href="deleteProduct?id={{product.id}}" class="style">Delete</a></td>		     
 			</sec:authorize>
 			
 		</tr>
-	</c:forEach>
+
 </table>
 <br><br><br>
 <%@ include file="footer.jsp" %>

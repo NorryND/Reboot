@@ -5,6 +5,8 @@ package com.niit.Controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,7 +93,7 @@ import com.niit.Models.Cart;
 		 }
 			
 		@RequestMapping(value="getAllCart", method=RequestMethod.GET)
-		public ModelAndView getAllCart(@RequestParam("name")String name,Model model) {
+		public ModelAndView getAllCart(@RequestParam("name")String name,Model model,HttpSession session) {
 			double total=0;
 		   List<Cart> list=cartDAO.list(name);
 		   for(Cart c:list)
@@ -101,7 +103,8 @@ import com.niit.Models.Cart;
 				System.out.println(total);
 				
 			}
-			model.addAttribute("Total",total);
+			session.setAttribute("Total",total);
+			session.setAttribute("name", name);
 			ModelAndView mv = new ModelAndView("cart");
 			mv.addObject("cart", list);
 

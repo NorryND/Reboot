@@ -8,7 +8,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Contact Details</title>
 </head>
-<body style="background-color: #8a8a5c">
+<style>
+  table{
+      
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 100px;
+    text-align: left;
+    margin-left: 2cm;
+    }
+    
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  
+  background-position: center center;
+  
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed;
+  
+  background-size: cover;
+
+  background-color: #464646;
+}
+</style>
+<body>
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 
@@ -21,23 +48,23 @@
 			<tr>
 				<td><form:label path="name">Name</form:label></td>
 				
-				<td>${contact.name}</td>
+				<td><b>${contact.name}</b></td>
 			</tr>
 			<tr>
 				<td><form:label path="email">Email</form:label></td>
 				
-				<td> ${contact.email}</td>
+				<td> <b>${contact.email}</b></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="phone">Phone</form:label></td>
 				
-				<td>${contact.phone}</td>
+				<td><b>${contact.phone}</b></td>
 			</tr>
 			<tr>
 				<td><form:label path="message">Message</form:label></td>
 				
-				<td>${contact.message}</td>
+				<td><b>${contact.message}</b></td>
 			</tr>
 
 			<tr>

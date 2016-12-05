@@ -2,26 +2,21 @@ package com.niit.Controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.DAO.BillingDAO;
 import com.niit.DAO.CartDAO;
-import com.niit.DAO.PaymentDAO;
 import com.niit.Models.Billing;
 import com.niit.Models.Cart;
 import com.niit.Models.Payment;
 
 @Component
-public class FlowController {
-	
-	@Autowired
-	private BillingDAO billingDAO;
-	
-	@Autowired
-	private PaymentDAO paymentDAO;
+public class flowController {
 	
 	
 	@Autowired
@@ -30,36 +25,29 @@ public class FlowController {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public String add(Billing billing,Payment payment){
-		
-		billing.setName(billing.getName());
-		billing.setAddress(billing.getAddress());
-		billing.setCity(billing.getCity());
-		billing.setContact(billing.getContact());
-		billing.setId(billing.getId());	
-		billingDAO.update(billing);
-		
-		payment.setUid(payment.getUid());
-		payment.setTotal(payment.getTotal());
-		paymentDAO.update(payment);
-		return "success";
-		
-	}
+	@Autowired
+	HttpSession sess;
 	
-	public String deleteAllCart(Billing billing, String uid){
-		
-		List<Cart> list=cartDAO.list(uid);
+	
+	@Transactional
+	public void add(Payment payment,Billing billing) {
+		Session session=sessionFactory.getCurrentSession();
+		Double total= (Double) sess.getAttribute("Total");
+		String id=(String) sess.getAttribute("name");
+		payment.setTotal(total);
+		session.save(payment);
+		session.save(billing);
+		System.out.println(id);
+		List<Cart> list=cartDAO.list(id);
 		for(Cart c:list)
 		{
-			delete(c);
+			Session sess = sessionFactory.getCurrentSession();
+			sess.delete(c);
 		}
-		return "success";
-	}
 
-	private void delete(Cart cart) {
-		Session session = sessionFactory.getCurrentSession();
-		session.delete(cart);
 		
 	}
+		
+	
 
 }

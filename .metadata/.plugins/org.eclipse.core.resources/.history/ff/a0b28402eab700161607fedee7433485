@@ -1,0 +1,38 @@
+body{
+background-size:100%;
+background-repeat: repeat-x;
+}
+
+input[type=text], input[type=password] {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+
+}
+
+.register {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.imgcontainer {
+    text-align: center;
+    margin: 0px 0 0px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+
+

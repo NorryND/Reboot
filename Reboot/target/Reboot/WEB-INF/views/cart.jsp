@@ -18,16 +18,17 @@ table {
  tr, td {
     height: 50px;
     padding: 15px;
-    text-align: left;
+    text-align: center;
 }
 
+
 th, td {
-    padding: 8px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
     border-bottom: 1px solid black;
 }
 
-tr:hover{background-color:buttonhighlight;}
+tr:hover{background-color:buttonshadow;}
 
 th {
     background-color: graytext;
@@ -48,6 +49,14 @@ a.style:hover, a.style:active {
     background-color: green;
 }
 
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
 
 </style>
@@ -55,34 +64,52 @@ a.style:hover, a.style:active {
 <body>
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-<table align="center">
+<table align="center" class="table">
   <tr>
     <th>Cart ID</th>
     <th>Product ID</th>
     <th>Product Name</th>
-    <th>Product Prrice</th>
-    
+    <th>Price</th>    
     <th>Quantity</th>
+    <th>Total</th>
+    <th colspan="3">User name</th>
   </tr>
   
+      <c:forEach items="${cart}" var="cart">
 		<tr>
 			
-			<td>${cart.id}</td>
+			<td>${cart.cid}</td>
 			<td>${cart.pid}</td>
 		    <td>${cart.pname}</td>
-		    <td>${cart.pprice}</td>
+		    <td>${cart.pprice}</td>		
+		        
 			<td>
-			<input type="number" name="quantity" min="1" max="1000">
-			<td><a href="${pageContext.request.contextPath}/deleteCart/${cart.id}" class="style">Delete</a></td>
+			          <form action="updateCart" method="get">
+			             <input type="hidden" name="cid" value="${cart.cid}">
+			             <input type="hidden" name="name" value="${username}">
+			             <input type="text" name="quantity"value="${cart.quantity}" pattern="[1-9]{1}" title="Enter Quantity">
+			             <input type="submit" value="Update">
+			          </form>
 			</td>
-			
+			<td>${cart.pprice*cart.quantity}</td>
+	
+			<td colspan="3">${cart.uid}</td>
+			<td><a href="${pageContext.request.contextPath}/deleteCart?id=${cart.cid}&name=${cart.uid}" class="style">Delete</a></td>
+	
 			
 		</tr>
-  
+       </c:forEach>
+       <tr>
+		<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+		<td>Amount payable</td>
+		<td>${Total}</td>
+	<tr>
   
 </table>
+<div align="center">
 <a href="Order" class="style">Order</a>
 <a href="${pageContext.request.contextPath}/getAllProduct" class="style">Continue Shopping</a>
+</div>
 <br><br><br>
 <%@ include file="footer.jsp" %>
 </body>

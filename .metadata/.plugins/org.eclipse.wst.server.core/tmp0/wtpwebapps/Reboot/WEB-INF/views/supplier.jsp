@@ -9,6 +9,14 @@
 <title>Add Product</title>
 </head>
 <style>
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
      table{
     width: 40%;
@@ -21,28 +29,33 @@
 }
 
 </style>
-<body style="background-color: #8a8a5c">
+
+<body>
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-	<h2>ADD Supplier</h2>
+	<h2 align="center">ADD Supplier</h2>
 
 	<form:form action="${pageContext.request.contextPath}/addSupplier" method="post" modelAttribute="supplier">
 		<table align="center">
 			<tr>
-				<td><form:label path="name">Supplier Name</form:label></td>
+				<td><form:label path="name"><b>Supplier Name</b></form:label></td>
 				<td><form:input path="name" /></td>
+				<td><form:errors path="name" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors></td>
 			</tr>
 			<tr>
-				<td><form:label path="contact">Supplier Contact</form:label></td>
+				<td><form:label path="contact"><b>Supplier Contact</b></form:label></td>
 				<td><form:input path="contact" /></td>
+				<td><form:errors path="contact" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors></td>
 			</tr>
 			
 			<tr>
-				<td><form:label path="address">Supplier Address</form:label></td>
+				<td><form:label path="address"><b>Supplier Address</b></form:label></td>
 				<td><form:textarea path="address" /></td>
+				<td><form:errors path="address" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors></td>
 			</tr>
 
 			<tr>
+			    <td></td>
 				<td><input type="submit" value="Add">
 			</tr>
 			

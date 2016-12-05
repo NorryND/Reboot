@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
 @Component
 @Entity
@@ -23,7 +23,7 @@ public class User {
 	@Size(min=3, message="Your name should be atleast 3 characters.")
 	private String lastname;
 	
-	@NotNull(message="Please select a password")
+	@NotBlank(message="Please select a password")
     @Length(min=5, max=10, message="Password should be between 5 - 10 charactes")
 	private String password;
 	@Transient

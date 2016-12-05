@@ -8,14 +8,20 @@ com\niit\DAO\ProductDAOImpl.class
 com\niit\DAO\ProductDAO.class
 com\niit\Controller\SupplierController.class
 com\niit\DAO\ContactDAO.class
+com\niit\Models\Payment.class
 com\niit\DAO\CartDAO.class
 com\niit\Models\Supplier.class
 com\niit\DAO\SupplierDAOImpl.class
 com\niit\Controller\UserController.class
 com\niit\DAO\CategoryDAO.class
 com\niit\Config\ContextConfig.class
+com\niit\DAO\PaymentDAO.class
 com\niit\Models\Category.class
+com\niit\DAO\PaymentDAOImpl.class
 com\niit\Models\Product.class
+com\niit\DAO\BillingDAO.class
+com\niit\Models\Billing.class
+com\niit\DAO\BillingDAOImpl.class
 com\niit\DAO\SupplierDAO.class
 com\niit\Models\User.class
 com\niit\Controller\ContactController.class
@@ -23,4 +29,5 @@ com\niit\DAO\UserDAOImpl.class
 com\niit\Models\Contact.class
 com\niit\DAO\CartDAOImpl.class
 com\niit\Controller\CategoryController.class
+com\niit\Controller\flowController.class
 com\niit\Controller\ShoeController.class

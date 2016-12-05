@@ -13,6 +13,8 @@ public interface CartDAO {
 	public void update(int quantity,String cid);
 
 	public void delete(String id);
+	
+	public void deleteAllCart(Cart cart);
 
 	public void add(Cart cart);
 

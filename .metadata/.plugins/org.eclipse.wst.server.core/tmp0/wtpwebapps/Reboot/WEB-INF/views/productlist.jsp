@@ -10,6 +10,16 @@
 </head>
 
 <style>
+
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
 table {
     border-collapse: collapse;
     width: 50%;
@@ -27,7 +37,7 @@ th, td {
     border-bottom: 1px solid black;
 }
 
-tr:hover{background-color:buttonhighlight;}
+tr:hover{background-color:buttonshadow;}
 
 th {
     background-color: graytext;
@@ -68,10 +78,10 @@ $http.get("pdata").then(function(response){
 });
 </script>
 
-<body style="background-color: #8a8a5c" ng-app="App" ng-controller="ProductController">
+<body ng-app="App" ng-controller="ProductController">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-<h4>List of available Products</h4>
+<h4 align="center">List of Available Products</h4>
 <p>${message} </p>
 <div class="container" align="center">
 <input type="text" placeholder="Product Search" ng-model="test.name">

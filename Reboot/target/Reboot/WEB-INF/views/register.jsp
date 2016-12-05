@@ -6,16 +6,26 @@
 
 <link rel="stylesheet" href="<c:url value="/css/register.css"/>">
 <title>Register</title>
+<style>
+body{
+    width:100%;
+    height: 100%;
+    background-image: url("<c:url value="/images/img12.jpg"/>");
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+</style>
 
-
-<body style="background-color: #8a8a5c">
+<body>
 <%@ include file="jumbotron.jsp" %>
 	<%@ include file="header.jsp"%>
-	<c:if test="${not empty passerror}">
             <div style="color:red">
-                <h1 id="banner">Password do not match !!</h1>
+                <h2 id="banner"> ${err}</h2>
+                <h2 id="banner"> ${msgerr}</h2>
             </div>
-        </c:if>
+    
+        
 	<div class="imgcontainer">
 		<img src="<c:url value="/images/img4.png"/>" alt="Avatar" class="avatar"><br>
 	</div>

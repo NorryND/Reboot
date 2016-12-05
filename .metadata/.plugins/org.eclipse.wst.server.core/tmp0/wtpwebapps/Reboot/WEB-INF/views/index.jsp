@@ -9,7 +9,18 @@
 
 
 <title>Welcome</title>
+
 </head>
+<style>
+body {
+  background-image: url("<c:url value="/images/img13.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+</style>
 
 <body>
 

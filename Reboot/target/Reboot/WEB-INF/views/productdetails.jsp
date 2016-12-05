@@ -10,6 +10,7 @@
 </head>
 
 <style>
+
 img.final{
 
 display: block;
@@ -36,7 +37,7 @@ display: block;
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 
-<form:form action="${pageContext.request.contextPath}/addCart?id=${product.id}" method="post" modelAttribute="product">
+<form:form action="${pageContext.request.contextPath}/addCart?id=${product.id}&name=${username}" method="post" modelAttribute="product">
 
 
 		<img class="final" src ="${pageContext.request.contextPath}/upload/${product.name}.jpg" width="40%" height="40%"/>

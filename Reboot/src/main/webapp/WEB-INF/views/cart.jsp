@@ -28,7 +28,7 @@ th, td {
     border-bottom: 1px solid black;
 }
 
-tr:hover{background-color:buttonhighlight;}
+tr:hover{background-color:buttonshadow;}
 
 th {
     background-color: graytext;
@@ -47,6 +47,15 @@ th {
 
 a.style:hover, a.style:active {
     background-color: green;
+}
+
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
 }
 
 
@@ -91,14 +100,16 @@ a.style:hover, a.style:active {
 		</tr>
        </c:forEach>
        <tr>
-		<td> </td>
+		<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
 		<td>Amount payable</td>
-		<td><c:out value="${Total}"/></td>
+		<td>${Total}</td>
 	<tr>
   
 </table>
+<div align="center">
 <a href="Order" class="style">Order</a>
 <a href="${pageContext.request.contextPath}/getAllProduct" class="style">Continue Shopping</a>
+</div>
 <br><br><br>
 <%@ include file="footer.jsp" %>
 </body>

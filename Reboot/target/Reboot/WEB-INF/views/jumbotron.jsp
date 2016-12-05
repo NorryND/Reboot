@@ -23,7 +23,7 @@
     <p><i>Money, Pay, Boot</i></p>
     <p align="right">
        <sec:authorize access="isAuthenticated()">
-             Welcome <sec:authentication property="principal.username" /> 
+             Welcome ${username}
       </sec:authorize>
       </p>
   </div>

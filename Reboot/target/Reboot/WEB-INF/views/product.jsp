@@ -19,6 +19,14 @@
     padding: 15px;
     text-align: left;
 }
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -30,10 +38,17 @@
        });
        });
 </script>
-<body style="background-color: #8a8a5c" ng-app="App" ng-controller="ProductController">
+<body ng-app="App" ng-controller="ProductController">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-	<h2>ADD Product</h2>
+	<h2 align="center">ADD Product</h2>
+	<div style="color:red">
+                <h2 id="banner"> ${pmsg}</h2>
+                <h2 id="banner"> ${psuccess}</h2>
+                <h2 id="banner"> ${pcat}</h2>
+                <h2 id="banner"> ${perror}</h2>
+                
+            </div>
 
 	<form:form action="${pageContext.request.contextPath}/addProduct" 
 	                       method="post" modelAttribute="product" enctype="multipart/form-data">
@@ -41,13 +56,13 @@
 			
 			<tr>
 				<td><form:label path="name"><b>Product Name</b></form:label></td>
-				<td><form:input path="name" cssStyle="width:60%" /></td>
-				<form:errors path="name" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>
+				<td><form:input path="name" cssStyle="width:60%" pattern="[A-Za-z0-9]+" title="Enter Name" required="true"/></td>
+				<form:errors path="name" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12" ></form:errors>
 			</tr>
 			<tr>
 			   
 				<td><form:label path="description"><b>Product Description</b></form:label></td>
-				<td><form:textarea path="description" cssStyle="width:60%"/>
+				<td><form:textarea path="description" cssStyle="width:60%" title="Enter Description" required="true"/>
 				<form:errors path="description" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>
 			</tr>
 			<tr>
@@ -63,12 +78,12 @@
 			</tr>
 			<tr>
 				<td><form:label path="stock"><b>Product Stock</b></form:label></td>
-				<td><form:input path="stock" cssStyle="width:60%" /></td>
+				<td><form:input path="stock" cssStyle="width:60%" pattern="[0-9]+" title="Enter Stock greater than 0" required="true"/></td>
 				<form:errors path="stock" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>
 			</tr>
 			<tr>
 				<td><form:label path="cost"><b>Product Cost</b></form:label></td>
-				<td><form:input path="cost" cssStyle="width:60%"/></td>
+				<td><form:input path="cost" cssStyle="width:60%" pattern="[1-9]+" title="Enter Cost greater than 0" required="true"/></td>
 				<form:errors path="cost" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>
 			</tr>
 			<tr>

@@ -59,7 +59,7 @@ public class ShoeController
 	public String validate(Model model, HttpSession session,Principal principal)
 	{
 		String name=principal.getName();
-	      session.setAttribute("successMessage", "You Have Sucessfully Login");
+	      model.addAttribute("successMessage", "You Have Sucessfully Login");
 	      session.setAttribute("username", name);
 		      return "index";      
     }

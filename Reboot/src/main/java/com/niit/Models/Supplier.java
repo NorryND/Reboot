@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,8 +19,12 @@ public class Supplier {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
+	@NotEmpty(message="Name Should Not be Empty")
 	private String name;
+	@NotNull(message="Contact should not be empty")
+	@Length(min=10,max=10,message="Contact should have 10 digits")
 	private String contact;
+	@NotBlank(message="Address should not be empty")
 	private String address;
 	
 	@Column(name="S_ID")

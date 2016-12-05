@@ -9,7 +9,18 @@
 
 
 <title>Welcome</title>
+
 </head>
+<style>
+body {
+  background-image: url("<c:url value="/images/img13.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+</style>
 
 <body>
 
@@ -17,9 +28,9 @@
 
 <%@ include file="header.jsp" %>
 
-      
-${successlogout}        
-${registermessage}
+<h2 id="banner"> ${successMessage}</h2>
+<h2 id="banner"> ${success}</h2>
+
     <!-- Carousel
     ================================================== -->
 <div class="container">
@@ -81,7 +92,7 @@ ${registermessage}
     <div class="col-sm-4">
       <div class="panel panel-danger">
         <div class="panel-body">
-        <a href="${pageContext.request.contextPath}/details/${1}">
+        <a href="${pageContext.request.contextPath}/details?id=1">
                <img src="<c:url value="/images/img5.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
                onmouseover="this.src='<c:url value="/images/img5.1.jpg"/>';"
@@ -94,7 +105,7 @@ ${registermessage}
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
         <div class="panel-body">
-        <a href="${pageContext.request.contextPath}/details/${2}">
+        <a href="${pageContext.request.contextPath}/details?id=2">
                <img src="<c:url value="/images/img6.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
                onmouseover="this.src='<c:url value="/images/img6.1.jpg"/>';"
@@ -107,7 +118,7 @@ ${registermessage}
     <div class="col-sm-4"> 
      <div class="panel panel-danger">
         <div class="panel-body">
-        <a href="${pageContext.request.contextPath}/details/${3}">
+        <a href="${pageContext.request.contextPath}/details?id=3">
                <img src="<c:url value="/images/img7.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
                onmouseover="this.src='<c:url value="/images/img7.1.jpg"/>';"
@@ -124,24 +135,36 @@ ${registermessage}
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="<c:url value="/images/img8.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <a href="${pageContext.request.contextPath}/details?id=33">
+               <img src="<c:url value="/images/img8.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img8.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img8.jpg"/>';">
+        </a>
       </div>
+      <div class="panel-footer">Woodland Men Tan Casual Shoes</div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="<c:url value="/images/img9.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+         <a href="${pageContext.request.contextPath}/details?id=34">
+               <img src="<c:url value="/images/img9.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img9.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img9.jpg"/>';">
+        </a>
       </div>
+      <div class="panel-footer">Buckaroo Men Maroon Casual Shoes</div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="<c:url value="/images/img10.jpg"/>" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+         <a href="${pageContext.request.contextPath}/details?id=35">
+               <img src="<c:url value="/images/img10.jpg"/>" 
+               class="img-responsive" style="width:100%" alt="Image"
+               onmouseover="this.src='<c:url value="/images/img10.1.jpg"/>';"
+               onmouseout="this.src='<c:url value="/images/img10.jpg"/>';">
+        </a>
       </div>
+      <div class="panel-footer">Mancini Men Black Slip on Shoes</div>
     </div>
   </div>
 </div><br><br><br>

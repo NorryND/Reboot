@@ -10,17 +10,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Category</title>
 </head>
-<body style="background-color: #8a8a5c">
+<style>
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+  table{
+      
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 100px;
+    text-align: left;
+    margin-left: 2cm;
+    }
+</style>
+
+<body>
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-	<h2>EDIT Category</h2>
+	<h2 align="center">EDIT Category</h2>
 
 	<form:form action="${pageContext.request.contextPath}/updateCategory" method="post" modelAttribute="category">
-		<table>
+		<table align="center">
 		    <tr>
 				
 				<td><form:hidden path="id" /></td>
 			</tr>
+			<br><br><br>
 			<tr>
 				<td><form:label path="name">Category Name</form:label></td>
 				<td><form:input path="name" /></td>

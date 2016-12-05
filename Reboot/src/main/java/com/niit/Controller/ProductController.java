@@ -47,12 +47,48 @@ public class ProductController {
 	
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
 	
-	public String updateProduct(@Valid @ModelAttribute Product product, BindingResult result){
+	public String updateProduct(@Valid @ModelAttribute Product product, BindingResult result,Model model
+			,RedirectAttributes rea){
 		
 		if (result.hasErrors()){
 			return "editProduct";
 		}
-		productDAO.update(product);
+		else if(product.getCategory().equalsIgnoreCase("Select a Category"))
+		{
+			model.addAttribute("uperror", "Enter Valid Category");
+			return "editProduct";
+		}
+		 else if(!product.getFile().isEmpty())
+			{
+			productDAO.update(product);
+				try
+				{
+					File dir= new File("C:/Users/Norwin Dcruz/Desktop/NIIT/Reboot/src/main/webapp/upload");
+					if (!dir.exists())
+						dir.mkdirs();
+	
+					// Create the file on server
+					File serverFile = new File(dir, product.getName() + ".jpg");
+					BufferedOutputStream stream = new BufferedOutputStream(	new FileOutputStream(serverFile));
+					stream.write(product.getFile().getBytes());
+					stream.close();
+	
+	
+					System.out.println("Upload");
+					rea.addFlashAttribute("psuccess", "Product Update Successfully");
+				 } catch (Exception e) 
+				{
+					System.out.println("You failed to upload " + " => " + e.getMessage());
+		        }
+		    }
+		 
+			else 
+			{
+				model.addAttribute("perror", "Empty file");
+				System.out.println("You failed to upload  because the file was empty.");
+				return "editProduct";
+			
+			}
 		return "redirect:getAllProduct";
 		
 	}

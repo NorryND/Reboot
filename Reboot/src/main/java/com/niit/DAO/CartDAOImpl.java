@@ -81,6 +81,13 @@ import com.niit.Models.Product;
 			
 		}
 
+		@Override
+		public void deleteAllCart(Cart cart) {
+			sessionFactory.getCurrentSession().delete(cart);
+		
+		}
+		
+
     }
     
   

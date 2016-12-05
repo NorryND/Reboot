@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -13,6 +14,12 @@ body {
   font-size: 12px;
   line-height: 30px;
   color: #777;
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
 }
 
 fieldset {
@@ -31,7 +38,7 @@ fieldset {
 }
 </style>
 </head>
-<body style="background-color: #8a8a5c">
+<body background="<c:url value="/images/img12.jpg"/>">
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 

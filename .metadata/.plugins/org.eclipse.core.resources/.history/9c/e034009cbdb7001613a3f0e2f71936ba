@@ -1,0 +1,20 @@
+package com.niit.Config;
+
+public class qqqq {
+	
+	static
+	{
+		System.out.println("Hi");
+	}
+	
+	static qqqq()
+	{
+		System.out.println("hello");
+	}
+	
+	qqqq()
+	{
+		System.out.println("How");
+	}
+
+}

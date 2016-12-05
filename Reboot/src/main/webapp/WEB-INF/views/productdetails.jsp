@@ -10,6 +10,7 @@
 </head>
 
 <style>
+
 img.final{
 
 display: block;

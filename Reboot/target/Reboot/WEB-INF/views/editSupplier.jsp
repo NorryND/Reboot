@@ -10,17 +10,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add Supplier</title>
 </head>
-<body style="background-color: #8a8a5c">
+<style>
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+  table{
+      
+    width: 40%;
+    }
+    
+    tr, td {
+    height: 50px;
+    padding: 100px;
+    text-align: left;
+    margin-left: 2cm;
+    }
+</style>
+
+<body>
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
-	<h2>EDIT Supplier</h2>
+	<h2 align="center">EDIT Supplier</h2>
 
 	<form:form action="${pageContext.request.contextPath}/updateSupplier" method="post" modelAttribute="supplier">
-		<table>
+		<table align="center">
 		    <tr>
 				
 				<td><form:hidden path="id" /></td>
 			</tr>
+		
 			<tr>
 				<td><form:label path="name">Supplier Name</form:label></td>
 				<td><form:input path="name" /></td>

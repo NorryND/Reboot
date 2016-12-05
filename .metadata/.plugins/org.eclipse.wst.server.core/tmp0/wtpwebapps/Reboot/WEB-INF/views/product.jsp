@@ -19,6 +19,14 @@
     padding: 15px;
     text-align: left;
 }
+body {
+  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -30,7 +38,7 @@
        });
        });
 </script>
-<body style="background-color: #8a8a5c" ng-app="App" ng-controller="ProductController">
+<body ng-app="App" ng-controller="ProductController">
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 	<h2 align="center">ADD Product</h2>
