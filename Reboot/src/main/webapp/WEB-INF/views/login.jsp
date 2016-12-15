@@ -8,7 +8,7 @@
 <title>Login</title>
 
 
-<body background="<c:url value="/images/img12.jpg"/>">
+<body background="<c:url value="/images/img13.jpg"/>">
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 

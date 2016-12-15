@@ -102,7 +102,7 @@ public class ShoeController
 	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
     public String logout(Model model, HttpSession session, RedirectAttributes re) {
 		session.invalidate();
-//		re.addFlashAttribute("successlogout", "Logout successful ");
+ //       re.addFlashAttribute("successlogout", "Logout Successful ");
         return "redirect:/";
     }	 
 

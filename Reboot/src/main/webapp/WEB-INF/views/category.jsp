@@ -12,7 +12,7 @@
 </head>
 <style>
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -35,6 +35,7 @@ body {
 <%@ include file="jumbotron.jsp" %>
 <%@ include file="header.jsp" %>
 	<h2 align="center">Add Category</h2>
+	<h2 id="banner"> ${cadd}</h2>
 
 	<form:form action="${pageContext.request.contextPath}/addCategory" method="post" modelAttribute="category">
 		<table align="center">

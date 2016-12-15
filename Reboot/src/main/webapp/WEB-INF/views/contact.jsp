@@ -14,7 +14,7 @@ body {
   font-size: 12px;
   line-height: 30px;
   color: #777;
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;

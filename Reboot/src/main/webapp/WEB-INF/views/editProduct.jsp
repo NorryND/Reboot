@@ -12,7 +12,7 @@
 </head>
 <style>
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,6 +40,7 @@ body {
                 <h2 id="banner"> ${uperror}</h2>
                 <h2 id="banner"> ${psuccess}</h2>
                 <h2 id="banner"> ${perror}</h2>
+                <h2 id="banner"> ${pmsg}</h2>
                 </div>
 
 	<form:form action="${pageContext.request.contextPath}/updateProduct" method="post"

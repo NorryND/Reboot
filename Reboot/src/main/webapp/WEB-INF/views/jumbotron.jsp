@@ -16,7 +16,7 @@
 
 
 
-<div class="jumbotron">  
+<div class="jumbotron" style="margin-bottom:0px;" >  
   <div class="container text-center">
   <img class="final" src=<c:url value="/images/img11.png"/> width="11%" height="20%"/>
     <h1><i>REBOOT</i></h1>      

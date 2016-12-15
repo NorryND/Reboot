@@ -20,7 +20,7 @@
     text-align: left;
 }
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -48,7 +48,7 @@ body {
                 <h2 id="banner"> ${pcat}</h2>
                 <h2 id="banner"> ${perror}</h2>
                 
-            </div>
+    </div>
 
 	<form:form action="${pageContext.request.contextPath}/addProduct" 
 	                       method="post" modelAttribute="product" enctype="multipart/form-data">

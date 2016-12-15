@@ -10,7 +10,7 @@
 </head>
 <style>
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -63,6 +63,8 @@ a.style:hover, a.style:active {
 <%@ include file="jumbotron.jsp" %>
  <%@ include file="header.jsp" %>
 <h4 align="center">List of available Category</h4>
+<h2 id="banner"> ${delete}</h2>
+<h2 id="banner"> ${update}</h2>
 <p>${message} </p>
 
 

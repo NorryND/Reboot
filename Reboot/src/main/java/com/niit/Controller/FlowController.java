@@ -34,9 +34,12 @@ public class flowController {
 		Session session=sessionFactory.getCurrentSession();
 		Double total= (Double) sess.getAttribute("Total");
 		String id=(String) sess.getAttribute("name");
-		payment.setTotal(total);
-		session.save(payment);
 		session.save(billing);
+		payment.setTotal(total);
+		payment.setUsername(id);
+		payment.setBid(billing.getId());
+		session.save(payment);
+		
 		System.out.println(id);
 		List<Cart> list=cartDAO.list(id);
 		for(Cart c:list)

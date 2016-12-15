@@ -50,7 +50,7 @@ a.style:hover, a.style:active {
 }
 
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -72,7 +72,7 @@ body {
     <th>Price</th>    
     <th>Quantity</th>
     <th>Total</th>
-    <th colspan="3">User name</th>
+    <th colspan="4">User name</th>
   </tr>
   
       <c:forEach items="${cart}" var="cart">

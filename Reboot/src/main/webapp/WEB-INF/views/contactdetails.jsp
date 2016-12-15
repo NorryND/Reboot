@@ -22,7 +22,7 @@
     }
     
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   
   background-position: center center;
   

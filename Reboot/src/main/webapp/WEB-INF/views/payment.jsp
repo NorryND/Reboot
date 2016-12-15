@@ -23,7 +23,7 @@
 }
 
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -49,6 +49,7 @@ a.style:hover, a.style:active {
 <%@ include file="header.jsp" %>
 	<h2>Payment</h2>
     <h3 align="center">Total = ${Total}</h3>
+    <h3 align="center">Username = ${name}</h3>
 	<form:form modelAttribute="payment">
 		<table align="center">
 		
@@ -70,7 +71,7 @@ a.style:hover, a.style:active {
 			
 			<tr>
 				<td><form:label path="cname">Card Holder Name</form:label></td>
-				<td><form:input path="cname" pattern="[A-Z]+" title="Enter Card Holder Name in UpperCase" required="true"/></td>
+				<td><form:input path="cname" pattern="[A-Z\s]+" title="Enter Card Holder Name in UpperCase" required="true"/></td>
 			</tr>
 			
 			<tr>
@@ -113,7 +114,7 @@ a.style:hover, a.style:active {
 			
 			<tr>
 				<td><form:label path="cvno">CVV</form:label></td>
-				<td><form:input path="cvno" pattern="[1-9]{3}" title="Enter 3-Digit CVV Number" required="true"/></td>
+				<td><form:password path="cvno" pattern="[1-9]{3}" title="Enter 3-Digit CVV Number" required="true"/></td>
 			</tr>
 			<tr>
 				<td><input name="_eventId_submit" type="submit" class="style" value="Proceed Payment">

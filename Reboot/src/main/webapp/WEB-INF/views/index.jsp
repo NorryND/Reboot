@@ -30,6 +30,7 @@ body {
 
 <h2 id="banner"> ${successMessage}</h2>
 <h2 id="banner"> ${success}</h2>
+<h2 id="banner"> ${successlogout}</h2>
 
     <!-- Carousel
     ================================================== -->
@@ -135,6 +136,7 @@ body {
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-danger">
+      <div class="panel-body">
         <a href="${pageContext.request.contextPath}/details?id=33">
                <img src="<c:url value="/images/img8.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
@@ -144,8 +146,10 @@ body {
       </div>
       <div class="panel-footer">Woodland Men Tan Casual Shoes</div>
     </div>
+    </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
+      <div class="panel-body">
          <a href="${pageContext.request.contextPath}/details?id=34">
                <img src="<c:url value="/images/img9.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
@@ -155,8 +159,10 @@ body {
       </div>
       <div class="panel-footer">Buckaroo Men Maroon Casual Shoes</div>
     </div>
+    </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
+      <div class="panel-body">
          <a href="${pageContext.request.contextPath}/details?id=35">
                <img src="<c:url value="/images/img10.jpg"/>" 
                class="img-responsive" style="width:100%" alt="Image"
@@ -167,7 +173,8 @@ body {
       <div class="panel-footer">Mancini Men Black Slip on Shoes</div>
     </div>
   </div>
-</div><br><br><br>
+  </div>
+  </div><br><br><br>
 
   
     <%@ include file="footer.jsp" %>

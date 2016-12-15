@@ -36,6 +36,10 @@ public class Payment implements Serializable{
 	private String cvno;
 	
 	private Double total;
+	
+	private String username;
+	
+	private String bid;
 
 	public String getCno() {
 		return cno;
@@ -83,6 +87,22 @@ public class Payment implements Serializable{
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getBid() {
+		return bid;
+	}
+
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
 
 	public String getPid() {

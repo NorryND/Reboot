@@ -49,10 +49,25 @@ public class ProductController {
 	
 	public String updateProduct(@Valid @ModelAttribute Product product, BindingResult result,Model model
 			,RedirectAttributes rea){
+		int counter=0;
+		List<Product> list=productDAO.list();
+		for(Product p:list)
+		{
+			if(p.getName().contains(product.getName()))
+			counter++;
+			System.out.println(p.getName());
+			System.out.println(product.getName());
+			System.out.println(counter);
+		}
 		
 		if (result.hasErrors()){
 			return "editProduct";
 		}
+		else if(counter!=0)
+			{
+				model.addAttribute("pmsg", "Product Already Exists");
+				return "editProduct";
+			}
 		else if(product.getCategory().equalsIgnoreCase("Select a Category"))
 		{
 			model.addAttribute("uperror", "Enter Valid Category");
@@ -105,7 +120,7 @@ public class ProductController {
     }	
 
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
-	public String addProduct( @ModelAttribute Product product, 
+	public String addProduct(@Valid @ModelAttribute Product product, 
 			Model model,BindingResult result,RedirectAttributes rea) {   
 		
 		int counter=0;
@@ -117,6 +132,10 @@ public class ProductController {
 			System.out.println(p.getName());
 			System.out.println(product.getName());
 			System.out.println(counter);
+		}
+		if(result.hasErrors())
+		{
+			return "product";
 		}
 		if(product.getCategory().equalsIgnoreCase("Select a Category"))
 		{
@@ -139,7 +158,7 @@ public class ProductController {
 						dir.mkdirs();
 	
 					// Create the file on server
-					File serverFile = new File(dir, product.getName() + ".jpg");
+					File serverFile = new File(dir, product.getName()+product.getId() + ".jpg");
 					BufferedOutputStream stream = new BufferedOutputStream(	new FileOutputStream(serverFile));
 					stream.write(product.getFile().getBytes());
 					stream.close();
@@ -168,8 +187,9 @@ public class ProductController {
 		
 
 	@RequestMapping(value="deleteProduct", method=RequestMethod.GET)
-	public String deleteProduct(@RequestParam("id") String id) {
+	public String deleteProduct(@RequestParam("id") String id,RedirectAttributes rea) {
 		productDAO.delete(id);
+		rea.addFlashAttribute("delete", "Product Deleted Successfully");
 	    return "redirect:/getAllProduct";
 	 }
 	

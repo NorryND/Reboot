@@ -1,6 +1,7 @@
 
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="shortcut icon" href="<c:url value="/images/img11.1.ico"/>">
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
@@ -46,7 +47,7 @@ img {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand"><img class=img-responsive2 src="<c:url value="/images/img11.png"/>"></a>
+      <a class="navbar-brand">Reboot</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -106,7 +107,6 @@ img {
       </sec:authorize>
         
       <sec:authorize access="isAuthenticated()">
-      <li><a href="#">Your Account</a></li>
       <li><a href="${pageContext.request.contextPath}/getAllCart?name=${username}"><span class="glyphicon glyphicon-user"></span> My Cart</a></li>
       
       <li><a href="${pageContext.request.contextPath}/Logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>

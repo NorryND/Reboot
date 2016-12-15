@@ -10,7 +10,7 @@
 body{
     width:100%;
     height: 100%;
-    background-image: url("<c:url value="/images/img12.jpg"/>");
+    background-image: url("<c:url value="/images/img13.jpg"/>");
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;

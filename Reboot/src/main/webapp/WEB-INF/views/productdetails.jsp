@@ -24,6 +24,11 @@ display: block;
     width: 40%;
     }
     
+    td {
+    background-color: graytext;
+    color: white;
+}
+    
     tr, td {
     height: 50px;
     padding: 100px;
@@ -40,7 +45,7 @@ display: block;
 <form:form action="${pageContext.request.contextPath}/addCart?id=${product.id}&name=${username}" method="post" modelAttribute="product">
 
 
-		<img class="final" src ="${pageContext.request.contextPath}/upload/${product.name}.jpg" width="40%" height="40%"/>
+		<img class="final" src ="${pageContext.request.contextPath}/upload/${product.name}${product.id}.jpg" width="40%" height="40%"/>
 		<br><br><br><br>
 		<table align="center" >
 		   	<tr>
@@ -73,8 +78,7 @@ display: block;
 			 <sec:authorize access="isAuthenticated()">
 			 <tr>
 			     <td></td>
-			     <td><input type="submit" value="Add to Cart">
-			 
+			     <td><input type="submit" class="btn btn-info" value="Add to Cart"></td> 
 			 </tr>
 			 </sec:authorize>
 		</table>

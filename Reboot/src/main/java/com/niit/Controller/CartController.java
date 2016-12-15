@@ -29,7 +29,7 @@ import com.niit.Models.Cart;
 		@RequestMapping(value="updateCart", method=RequestMethod.GET)
 		
 		public ModelAndView updateCart(Cart cart,@RequestParam("quantity")int quantity,@RequestParam("name")String name,
-				Model model,@RequestParam("cid")String id){
+				Model model,@RequestParam("cid")String id,HttpSession session){
 			double total=0;
 			cartDAO.update(quantity,id);
 			List<Cart> list=cartDAO.list(name);
@@ -40,7 +40,8 @@ import com.niit.Models.Cart;
 				System.out.println(total);
 				
 			}
-			model.addAttribute("Total",total);
+			session.setAttribute("Total",total);
+			session.setAttribute("name", name);
 			ModelAndView mv=new ModelAndView("cart");
 			mv.addObject("cart", list);
 		    return mv;
@@ -49,7 +50,8 @@ import com.niit.Models.Cart;
 			
 
 		@RequestMapping("addCart")
-		public ModelAndView addCart(Cart cart,@RequestParam("id")String id,@RequestParam("name")String name,Model model) {
+		public ModelAndView addCart(Cart cart,@RequestParam("id")String id,
+				@RequestParam("name")String name,Model model,HttpSession session) {
             double total=0;
           
 		    cart.setUid(name);
@@ -66,7 +68,8 @@ import com.niit.Models.Cart;
 				System.out.println(total);
 				
 			}
-			model.addAttribute("Total",total);
+			session.setAttribute("Total",total);
+			session.setAttribute("name", name);
 			ModelAndView mv=new ModelAndView("cart");
 			mv.addObject("cart", list);
 		    return mv;
@@ -75,7 +78,8 @@ import com.niit.Models.Cart;
 		
 		
 		@RequestMapping(value="deleteCart", method=RequestMethod.GET)
-		public ModelAndView deleteCart(Cart cart,@RequestParam("id")String id,@RequestParam("name")String name,Model model) {
+		public ModelAndView deleteCart(Cart cart,@RequestParam("id")String id,
+				@RequestParam("name")String name,Model model,HttpSession session) {
 			double total=0;
 			cartDAO.delete(id);
 			List<Cart> list=cartDAO.list(name);
@@ -86,7 +90,8 @@ import com.niit.Models.Cart;
 				System.out.println(total);
 				
 			}
-			model.addAttribute("Total",total);
+			session.setAttribute("Total",total);
+			session.setAttribute("name", name);
 			ModelAndView mv=new ModelAndView("cart");
 			mv.addObject("cart", list);
 		    return mv;

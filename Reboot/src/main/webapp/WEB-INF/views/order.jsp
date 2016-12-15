@@ -48,7 +48,7 @@ input.style:hover, input.style:active {
 }
 
 body {
-  background-image: url("<c:url value="/images/img12.jpg"/>");
+  background-image: url("<c:url value="/images/img13.jpg"/>");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -68,7 +68,7 @@ body {
 		</tr>
 		<tr>
 			<td><form:label path="name">Recipient Name</form:label></td>
-			<td><form:input path="name" pattern="[A-Za-z]+" title="Enter Name" required="true"/></td>
+			<td><form:input path="name" pattern="[A-Za-z\s]+" title="Enter Name" required="true"/></td>
 		</tr>
 		<tr>
 			<td><form:label path="address">Recipient Address</form:label></td>
@@ -77,7 +77,7 @@ body {
 		
 		<tr>
 			<td><form:label path="city">Recipient City</form:label></td>
-			<td><form:input path="city" pattern="[A-Za-z]+" title="Enter City" required="true"/></td>
+			<td><form:input path="city" pattern="[A-Za-z\s]+" title="Enter City" required="true"/></td>
 		</tr>
 		
 		<tr>
