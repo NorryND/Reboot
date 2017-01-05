@@ -54,6 +54,7 @@ import com.niit.Models.Product;
 			Product product=(Product) session.get(Product.class,id);
 			cart.setPprice(product.getCost());
 			cart.setPname(product.getName());
+			cart.setPstock(product.getStock());
 			session.save(cart);
 			
 		}

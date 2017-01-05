@@ -23,6 +23,7 @@ public class Cart implements Serializable {
 	private String pid;
 	private String pname;
 	private double pprice;
+	private int pstock;
 	private int quantity;
 	@Transient
 	private double total;
@@ -53,6 +54,12 @@ public class Cart implements Serializable {
 	}
 	public void setPprice(double pprice) {
 		this.pprice = pprice;
+	}
+	public int getPstock() {
+		return pstock;
+	}
+	public void setPstock(int pstock) {
+		this.pstock = pstock;
 	}
 	public int getQuantity() {
 		return quantity;

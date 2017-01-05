@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Products</title>
+<title>Product Details</title>
 </head>
 
 <style>
@@ -44,7 +44,7 @@ display: block;
 
 <form:form action="${pageContext.request.contextPath}/addCart?id=${product.id}&name=${username}" method="post" modelAttribute="product">
 
-
+       <h2>${errcart}</h2>
 		<img class="final" src ="${pageContext.request.contextPath}/upload/${product.name}${product.id}.jpg" width="40%" height="40%"/>
 		<br><br><br><br>
 		<table align="center" >

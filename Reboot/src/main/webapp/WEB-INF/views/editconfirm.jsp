@@ -54,21 +54,21 @@ a.style:hover, a.style:active {
 		</tr>
 		<tr>
 			<td><form:label path="name">Name</form:label></td>
-			<td>${billing.name}</td>
+			<td><b>${billing.name}</b></td>
 		</tr>
 		<tr>
 			<td><form:label path="address">Address</form:label></td>
-			<td>${billing.address}</td>
+			<td><b>${billing.address}</b></td>
 		</tr>
 		
 		<tr>
 			<td><form:label path="city">City</form:label></td>
-			<td>${billing.city}</td>
+			<td><b>${billing.city}</b></td>
 		</tr>
 		
 		<tr>
 			<td><form:label path="contact">Contact</form:label></td>
-			<td>${billing.contact}</td>
+			<td><b>${billing.contact}</b></td>
 		</tr>
 			
 			

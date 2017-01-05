@@ -52,6 +52,16 @@ body{
 			
 			<tr>
 				<td>
+				  <form:label path="email" cssClass="control-label col-sm-3"><b>Email</b></form:label> 
+				  <form:input path="email" placeholder="Enter Last Name" cssStyle="width:60%"/> <br>
+				  <form:errors path="email" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>
+				</td>
+			</tr>
+			
+			
+			
+			<tr>
+				<td>
 				  <form:label path="username" cssClass="control-label col-sm-3"><b>Username</b></form:label> 
 				  <form:input path="username" placeholder="Enter Username" cssStyle="width:60%"/> <br>
 				  <form:errors path="username" cssStyle="color: #ff0000" cssClass="control-errors col-sm-12"></form:errors>

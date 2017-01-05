@@ -62,7 +62,11 @@ img {
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Product
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="${pageContext.request.contextPath}/getAllProduct">View Product</a></li>
+          <li><a href="${pageContext.request.contextPath}/getAllProduct">View All Product</a></li>
+          <li><a href="sports?category=Sports">Sports</a></li>
+          <li><a href="outdoor?category=Outdoor">Outdoor</a></li>
+          <li><a href="casual?category=Casual">Casual</a></li>
+          <li><a href="formal?category=Formal">Formal</a></li>
           <sec:authorize access="hasRole('ROLE_ADMIN')">
           <li><a href="${pageContext.request.contextPath}/Product">Add Product</a></li>
           

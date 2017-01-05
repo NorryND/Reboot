@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.stereotype.Component;
@@ -16,12 +18,19 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
+	
 	@Size(min=5, max=10, message="Your name should be between 5 - 10 characters.")
 	private String username;
+	@Pattern(regexp="^[A-Za-z]+$")
 	@Size(min=3, message="Your name should be atleast 3 characters.")
 	private String firstname;
+	@Pattern(regexp="^[A-Za-z]+$")
 	@Size(min=3, message="Your name should be atleast 3 characters.")
 	private String lastname;
+	
+	@NotBlank(message="Email Cannot be Empty")
+	@Email(message="Enter Valid Email")
+	private String email;
 	
 	@NotBlank(message="Please select a password")
     @Length(min=5, max=10, message="Password should be between 5 - 10 charactes")
@@ -48,6 +57,12 @@ public class User {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getUsername() {
 		return username;

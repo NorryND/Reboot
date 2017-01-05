@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>About Us</title>
+<title>Contact Us</title>
 <style>
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;

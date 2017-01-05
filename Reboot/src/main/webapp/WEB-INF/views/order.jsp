@@ -88,7 +88,7 @@ body {
 			
 			<tr>
 			    <td><a href="getAllCart?name=${username}" class="style">Back</a></td>
-				<td><input name="_eventId_submit" type="submit" class="style" value="Order"></td>
+				<td><input name="_eventId_submit" type="submit" class="btn btn-success" value="Order"></td>
 			</tr>
 			
 		</table>

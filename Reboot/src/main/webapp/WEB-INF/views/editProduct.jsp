@@ -66,7 +66,8 @@ body {
                          <form:option value="Select a Category" cssStyle="width:160%"></form:option>
                          <form:option value="Casual">Casual</form:option>
                           <form:option value="Sports">Sports</form:option>
-                          <form:option  value="Formal">Formal</form:option>                   
+                          <form:option  value="Formal">Formal</form:option> 
+                          <form:option  value="Formal">Outdoor</form:option>                    
                      </form:select> 
                   </td>
 			</tr>

@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,13 +84,14 @@ public class ProductController {
 						dir.mkdirs();
 	
 					// Create the file on server
-					File serverFile = new File(dir, product.getName() + ".jpg");
+					File serverFile = new File(dir, product.getName()+product.getId() + ".jpg");
 					BufferedOutputStream stream = new BufferedOutputStream(	new FileOutputStream(serverFile));
 					stream.write(product.getFile().getBytes());
 					stream.close();
 	
 	
 					System.out.println("Upload");
+					
 					rea.addFlashAttribute("psuccess", "Product Update Successfully");
 				 } catch (Exception e) 
 				{
@@ -110,9 +112,11 @@ public class ProductController {
 	
 
 	@RequestMapping(value="details", method=RequestMethod.GET)
-	public String details(@RequestParam("id") String id, Map<String, Object> map )
+	public String details(@RequestParam("id") String id, Map<String, Object> map,HttpSession session)
 	{
 	      Product product=productDAO.get(id);
+	      session.setAttribute("stock", product.getStock());
+	      System.out.println(product.getStock());
 	      map.put("product", product);
 	     
 		      return "productdetails";
@@ -121,7 +125,7 @@ public class ProductController {
 
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
 	public String addProduct(@Valid @ModelAttribute Product product, 
-			Model model,BindingResult result,RedirectAttributes rea) {   
+			Model model,BindingResult result,RedirectAttributes rea,HttpSession session) {   
 		
 		int counter=0;
 		List<Product> list=productDAO.list();
@@ -210,11 +214,48 @@ public class ProductController {
 	
 	@RequestMapping("/getAllProduct")
 	public ModelAndView getAllProducts() {
-		
+	
 		List<Product> List = productDAO.list();
-		
 		ModelAndView mv = new ModelAndView("productlist");
 		mv.addObject("productlist", List);
+		
+		return mv;
+	}
+	
+	@RequestMapping("/sports")
+	public ModelAndView getAllSportsProducts(@RequestParam("category") String category) {
+	
+		List<Product> List = productDAO.getCategory(category);
+		ModelAndView mv = new ModelAndView("productlist");
+		mv.addObject("productlist", List);
+		
+		return mv;
+	}
+	@RequestMapping("/outdoor")
+	public ModelAndView getAllOutdoorProducts(@RequestParam("category") String category) {
+	
+		List<Product> List = productDAO.getCategory(category);
+		ModelAndView mv = new ModelAndView("productlist");
+		mv.addObject("productlist", List);
+		
+		return mv;
+	}
+	@RequestMapping("/formal")
+	public ModelAndView getAllFormalProducts(@RequestParam("category") String category) {
+	
+		List<Product> List = productDAO.getCategory(category);
+		ModelAndView mv = new ModelAndView("productlist");
+		mv.addObject("productlist", List);
+		
+		return mv;
+	}
+	@RequestMapping("/casual")
+	public ModelAndView getAllCasualProducts(@RequestParam("category") String category) {
+	
+		List<Product> List = productDAO.getCategory(category);
+		ModelAndView mv = new ModelAndView("productlist");
+		mv.addObject("productlist", List);
+		
 		return mv;
 	}
 	

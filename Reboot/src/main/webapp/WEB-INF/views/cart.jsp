@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cart</title>
 </head>
 
 <style>
@@ -69,9 +69,11 @@ body {
     <th>Cart ID</th>
     <th>Product ID</th>
     <th>Product Name</th>
-    <th>Price</th>    
+    <th>Price</th> 
+    <th>Stock</th>   
     <th>Quantity</th>
     <th>Total</th>
+    <th>Product Left</th>
     <th colspan="4">User name</th>
   </tr>
   
@@ -81,10 +83,13 @@ body {
 			<td>${cart.cid}</td>
 			<td>${cart.pid}</td>
 		    <td>${cart.pname}</td>
-		    <td>${cart.pprice}</td>		
+		    <td>${cart.pprice}</td>
+		    <td >${cart.pstock}</td>	
 		        
 			<td>
 			          <form action="updateCart" method="get">
+			             <input type="hidden" name="pstock" value="${cart.pstock}">
+			             <input type="hidden" name="pid" value="${cart.pid}">
 			             <input type="hidden" name="cid" value="${cart.cid}">
 			             <input type="hidden" name="name" value="${username}">
 			             <input type="text" name="quantity"value="${cart.quantity}" pattern="[1-9]{1}" title="Enter Quantity">
@@ -92,9 +97,10 @@ body {
 			          </form>
 			</td>
 			<td>${cart.pprice*cart.quantity}</td>
+			<td>${cart.pstock-cart.quantity}</td>
 	
 			<td colspan="3">${cart.uid}</td>
-			<td><a href="${pageContext.request.contextPath}/deleteCart?id=${cart.cid}&name=${cart.uid}" class="style">Delete</a></td>
+			<td><a href="${pageContext.request.contextPath}/deleteCart?id=${cart.cid}&name=${cart.uid}&stock=${cart.pstock-cart.quantity}&quantity=${cart.quantity}&pid=${cart.pid}" class="style">Delete</a></td>
 	
 			
 		</tr>

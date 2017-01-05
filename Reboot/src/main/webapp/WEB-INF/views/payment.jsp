@@ -117,8 +117,8 @@ a.style:hover, a.style:active {
 				<td><form:password path="cvno" pattern="[1-9]{3}" title="Enter 3-Digit CVV Number" required="true"/></td>
 			</tr>
 			<tr>
-				<td><input name="_eventId_submit" type="submit" class="style" value="Proceed Payment">
-				<td><input name="_eventId_back" type="submit" class="style" value="Back">
+				<td><input name="_eventId_submit" type="submit" class="btn btn-success" value="Proceed Payment">
+				<td><input name="_eventId_back" type="submit" class="btn btn-primary" value="Back">
 			</tr>
 			
 		</table>

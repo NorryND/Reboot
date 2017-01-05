@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Suppliers</title>
+<title>List of Suppliers</title>
 </head>
 
 <style>
