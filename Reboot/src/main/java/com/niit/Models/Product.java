@@ -1,4 +1,4 @@
-package com.niit.Models;
+ package com.niit.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
